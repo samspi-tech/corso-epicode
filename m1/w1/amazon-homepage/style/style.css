@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #eaeded;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.bg-white {
+  background: #fff;
+}
+
+.bg-logo {
+  background: #222f3e;
+}
+
+.bg-nav {
+  background: #354758;
+}
+
+.white-t,
+nav a {
+  color: white;
+}
+
+.blue-t {
+  color: #167185;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.side-pad {
+  padding: 0 5%;
+}
+
+.block {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.img-extra p,
+a {
+  font-size: 20px;
+}
+
+a:hover {
+  color: #f56600;
+}
+
+/* nav */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.logo {
+  padding: 10px 20px;
+}
+
+.logo img {
+  width: 150px;
+}
+
+nav ul {
+  padding-left: 20px;
+}
+
+nav li {
+  display: inline-block;
+  padding: 10px 15px;
+}
+
+/* header */
+header {
+  margin-top: 140px;
+}
+
+header p {
+  background: #f56600;
+  margin: 20px 0;
+  font-size: 22px;
+  padding: 10px 0;
+}
+
+.bg-img {
+  background: url(../images/bg-image.png) 50%;
+  padding: 70px 0;
+}
+
+header h1 {
+  padding-bottom: 30px;
+  font-size: 48px;
+}
+
+header h4 {
+  font-size: 25px;
+}
+
+/* containers */
+.perfect-gift {
+  padding: 30px 100px;
+}
+
+.container {
+  margin: 40px 0;
+}
+
+.container p {
+  font-size: 25px;
+  padding-bottom: 20px;
+}
+
+.container p a {
+  margin-left: 20px;
+}
+
+/* container one */
+/* Mi dispiace se ho usato flex-box ma stavo diventando pazzo senza */
+#container-one {
+  display: flex;
+  justify-content: space-between;
+}
+
+#container-one img {
+  width: 22%;
+  height: 650px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 5px 5px 30px 5px #bbb;
+  margin: 20px 0;
+}
+
+/* container two & three */
+#container-two img,
+#container-three img {
+  width: 100%;
+}
+
+/* footer */
+#nav-foot {
+  padding: 20px 0;
+}
+
+footer a {
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.bottom-logo img {
+  margin: 0 auto;
+  padding: 80px 0;
+  width: 250px;
+}
+
+/* EXTRA */
+#extra {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#extra h2 {
+  padding-bottom: 30px;
+  font-size: 30px;
+}
+
+.container-extra {
+  width: 410px;
+  margin-bottom: 30px;
+  padding: 30px;
+}
+
+.imgs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+.img-extra {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.img-extra img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.new {
+  scale: 40%;
+  position: absolute;
+  bottom: -20%;
+  left: 45%;
+}
+
+/* NEW icon image */
+/* <img class="new" src="./images/new.png" alt="new item"> */

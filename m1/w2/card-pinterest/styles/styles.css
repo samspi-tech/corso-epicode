@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+button {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 30px;
+  border: none;
+}
+
+.container-card {
+  position: relative;
+  width: 500px;
+  height: 700px;
+}
+
+.container-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+/* TOP BUTTON */
+.save-btn {
+  position: absolute;
+  right: 20px;
+  top: -100%;
+  transition: top 200ms ease;
+
+  padding: 30px 35px;
+  color: #fff;
+  background: #f00;
+  border-radius: 50px;
+}
+
+/* top-btn effects */
+.save-btn:hover {
+  margin-top: 10px;
+  transition: 250ms;
+}
+
+.save-btn:active {
+  background: #c01515;
+}
+
+/* BOTTOM BUTTONS */
+.bottom-btns button {
+  position: absolute;
+  left: 20px;
+  bottom: -100%;
+  transition: bottom 200ms ease;
+}
+
+.bottom-btns button:first-child {
+  border-radius: 50px;
+  padding: 20px 30px;
+}
+
+.bottom-btns button:not(:first-child) {
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.bottom-btns button:nth-child(2) {
+  left: 320px;
+}
+
+.bottom-btns button:nth-child(3) {
+  left: 410px;
+}
+
+/* bottom-btns effects */
+.bottom-btns button:hover {
+  margin-bottom: 10px;
+  transition: 250ms;
+}
+
+.bottom-btns button:active {
+  background: #9e9e9e;
+}
+
+/* HOVER ON CARD */
+.container-card:hover img {
+  filter: brightness(0.6);
+}
+
+.container-card:hover .save-btn {
+  top: 20px;
+}
+
+.container-card:hover .bottom-btns button {
+  bottom: 20px;
+}
