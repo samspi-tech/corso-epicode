@@ -18,9 +18,17 @@
 <body>
   <!-- TOP NAVBAR -->
   <nav class="top-nav">
-    <!-- logo -->
-    <div class="nav-logo">
-      <a href="#"><img src="./images/logo.svg" alt="medium logo"></a>
+
+    <!-- logo & search bar -->
+    <div class="logo-search-container">
+      <div class="nav-logo">
+        <a href="#"><img src="./images/logo.svg" alt="medium logo"></a>
+      </div>
+
+      <div class="search-bar">
+        <ion-icon name="search"></ion-icon>
+        <input type="search" id="site-search" placeholder="Search">
+      </div>
     </div>
 
     <!-- icons & buttons -->
@@ -41,10 +49,22 @@
     <section id="left-section">
 
       <!-- topic selection -->
-      <div class="topic-selection-container">
-        <a class="topic-selection" href="#">Following</a>
-        <a class="topic-selection" href="#">Reccomended for you</a>
-        <a class="topic-selection" href="#"></a>
+      <div class="topic-selection-relative">
+
+        <div class="topic-selection-icon">
+          <ion-icon name="add"></ion-icon>
+        </div>
+
+        <div class="topic-selection-container">
+          <a class="topic-selection" href="#">Following</a><a class="topic-selection" href="#">Reccomended for you</a><a
+            class="topic-selection" href="#">Software Development</a><a class="topic-selection" href="#">Startup</a><a
+            class="topic-selection" href="#">JavaScript</a><a class="topic-selection" href="#">Following</a><a
+            class="topic-selection" href="#">Programming</a>
+        </div>
+
+        <div class="topic-selection-icon">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </div>
       </div>
 
       <!-- ARTICLES SECTION -->
