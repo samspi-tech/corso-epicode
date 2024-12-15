@@ -6,23 +6,486 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>W2D2</title>
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
+  <!-- TOP NAVBAR -->
   <nav class="top-nav">
+    <!-- logo -->
     <div class="nav-logo">
-      <img src="./images/logo.svg" alt="medium logo">
+      <a href="#"><img src="./images/logo.svg" alt="medium logo"></a>
     </div>
 
+    <!-- icons & buttons -->
     <div class="nav-btns">
-      <button class="icon-btn"><ion-icon name="search-outline"></ion-icon></button>
-      <button class="icon-btn"><ion-icon name="bookmark-outline"></ion-icon></button>
-      <button class="icon-btn"><ion-icon name="notifications-outline"></ion-icon></button>
-      <button class="resume-membership">Resume membership</button>
+      <div class="icon-link">
+        <a href="#"><ion-icon name="search-outline"></ion-icon></a>
+        <a href="#"><ion-icon name="bookmarks-outline"></ion-icon></a>
+        <a href="#"><ion-icon name="notifications-outline"></ion-icon></a>
+      </div>
+
+      <button class="resume-membership-btn">Resume membership</button>
       <button class="profile-btn">A</button>
     </div>
   </nav>
 
+  <main>
+    <!-- LEFT SECTION -->
+    <section id="left-section">
+
+      <!-- topic selection -->
+      <div class="topic-selection-container">
+        <a class="topic-selection" href="#">Following</a>
+        <a class="topic-selection" href="#">Reccomended for you</a>
+        <a class="topic-selection" href="#"></a>
+      </div>
+
+      <!-- ARTICLES SECTION -->
+      <section class="articles-section">
+
+        <!-- ARTICLE 1 -->
+        <article class="article-container">
+
+          <!-- article description -->
+          <div class="article-description-container">
+            <div class="topic">
+              <a class="topic-img" href="#"><img class="article-border-radius" src="./images/udacity-icon.webp"
+                  alt="topic image"></a>
+
+              <div class="topic-description">
+                <a href="#">
+                  <h5>Kolby Sisk</h5>
+                </a>
+
+                <p>in</p>
+
+                <a href="#">
+                  <h5>Udacity Eng &amp; Data</h5>
+                </a>
+              </div>
+            </div>
+
+            <!-- topic title -->
+            <a class="topic-title" href="#">
+              <h4>React state management in 2022-Return of the Redux</h4>
+              <p>At the beginning of the year if you told me I'd be publishing a recommendation to use Redux I would
+                have
+                laughed in your face. Yet her...</p>
+            </a>
+
+            <!-- article bottom -->
+            <div class="article-bottom">
+              <p>Dec 3 &#183; 4 min read &#183; <a href="#">React</a> &#183; Popular on Medium</p>
+
+              <div class="article-bottom-icon">
+                <a href="#"><ion-icon name="add"></ion-icon></a>
+                <a href="#"><ion-icon name="ellipsis-horizontal"></ion-icon></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- article image -->
+          <div class="article-img">
+            <img src="./images/return-of-the-redux.png" alt="article image">
+          </div>
+        </article>
+
+        <!-- ARTICLE 2 -->
+        <article class="article-container">
+
+          <!-- article description -->
+          <div class="article-description-container">
+            <div class="topic">
+              <a class="topic-img" href="#"><img class="photo-border-radius" src="./images/navoda-picture.jpeg"
+                  alt="profile picture"></a>
+
+              <div class="topic-description">
+                <a href="#">
+                  <h5>Navoda Nilakshi</h5>
+                </a>
+              </div>
+            </div>
+
+            <!-- topic title -->
+            <a class="topic-title" href="#">
+              <h4 class="capitalize">How to sanitize your express app against MongoDB injection &amp; cross-site
+                scripting
+              </h4>
+              <p>Easiest way to sanitize your express app.</p>
+            </a>
+
+            <!-- article bottom -->
+            <div class="article-bottom">
+              <p>Dec 19 &#183; 9 min read &#183; <a href="#">Web Development</a> &#183; Based on your reading history
+              </p>
+
+              <div class="article-bottom-icon">
+                <a href="#"><ion-icon name="add"></ion-icon></a>
+                <a href="#"><ion-icon name="ellipsis-horizontal"></ion-icon></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- article image -->
+          <div class="article-img">
+            <img src="./images/express-sanitize.jpeg" alt="article image">
+          </div>
+        </article>
+
+        <!-- ARTICLE 3 -->
+        <article class="article-container">
+
+          <!-- article description -->
+          <div class="article-description-container">
+            <div class="topic">
+              <a class="topic-img" href="#"><img class="article-border-radius" src="./images/dhiwise-icon.jpeg"
+                  alt="topic image"></a>
+
+              <div class="topic-description">
+                <a href="#">
+                  <h5>Divyesh Bhalani</h5>
+                </a>
+
+                <p>in</p>
+
+                <a href="#">
+                  <h5>DhiWise</h5>
+                </a>
+              </div>
+            </div>
+
+            <!-- topic title -->
+            <a class="topic-title" href="#">
+              <h4>React 18 new features and updates</h4>
+              <p>Know about some cool features and updates of React 18.</p>
+            </a>
+
+            <!-- article bottom -->
+            <div class="article-bottom">
+              <p>Nov 24 &#183; 4 min read &#183; <a href="#">Reactjs</a> &#183; Popular on Medium</p>
+
+              <div class="article-bottom-icon">
+                <a href="#"><ion-icon name="add"></ion-icon></a>
+                <a href="#"><ion-icon name="ellipsis-horizontal"></ion-icon></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- article image -->
+          <div class="article-img">
+            <img src="./images/react-18.jpeg" alt="article image">
+          </div>
+        </article>
+
+        <!-- ARTICLE 4 -->
+        <article class="article-container">
+
+          <!-- article description -->
+          <div class="article-description-container">
+            <div class="topic">
+              <a class="topic-img" href="#"><img class="article-border-radius" src="./images/fively-icon.jpg"
+                  alt="topic image"></a>
+
+              <div class="topic-description">
+                <a href="#">
+                  <h5>Vsevolod Ulyanovich</h5>
+                </a>
+
+                <p>in</p>
+
+                <a href="#">
+                  <h5>Fively Blog</h5>
+                </a>
+              </div>
+            </div>
+
+            <!-- topic title -->
+            <a class="topic-title" href="#">
+              <h4>15 Best Web App Ideas for a Startup in 2021</h4>
+              <p>15 Startup Ideas and Technology That Could Make You a Millionaire</p>
+            </a>
+
+            <!-- article bottom -->
+            <div class="article-bottom">
+              <p>Oct 29 &#183; 6 min read &#183; <a href="#">Web Development</a> &#183; Popular on Medium</p>
+
+              <div class="article-bottom-icon">
+                <a href="#"><ion-icon name="add"></ion-icon></a>
+                <a href="#"><ion-icon name="ellipsis-horizontal"></ion-icon></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- article image -->
+          <div class="article-img">
+            <img src="./images/people-mac.jpg" alt="article image">
+          </div>
+        </article>
+
+        <!-- ARTICLE 5 -->
+        <article class="article-container">
+
+          <!-- article description -->
+          <div class="article-description-container">
+            <div class="topic">
+              <a class="topic-img" href="#"><img class="article-border-radius" src="./images/udacity-icon.webp"
+                  alt="topic image"></a>
+
+              <div class="topic-description">
+                <a href="#">
+                  <h5>Kolby Sisk</h5>
+                </a>
+
+                <p>in</p>
+
+                <a href="#">
+                  <h5>Udacity Eng &amp; Data</h5>
+                </a>
+              </div>
+            </div>
+
+            <!-- topic title -->
+            <a class="topic-title" href="#">
+              <h4>Understanding re-rendering and memoization in React</h4>
+              <p>The following are quick tips to increase performance in your React application by understanding
+                re-rendering and memoization. To better...</p>
+            </a>
+
+            <!-- article bottom -->
+            <div class="article-bottom">
+              <p>Dec 6 &#183; 4 min read &#183; <a href="#">React</a> &#183; Popular on Medium</p>
+
+              <div class="article-bottom-icon">
+                <a href="#"><ion-icon name="add"></ion-icon></a>
+                <a href="#"><ion-icon name="ellipsis-horizontal"></ion-icon></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- article image -->
+          <div class="article-img">
+            <img src="./images/react-memoization.jpg" alt="article image">
+          </div>
+        </article>
+
+        <!-- ARTICLE 5 -->
+        <article class="article-container">
+
+          <!-- article description -->
+          <div class="article-description-container">
+            <div class="topic">
+              <a class="topic-img" href="#"><img class="article-border-radius" src="./images/nerd-for-tech.png"
+                  alt="topic image"></a>
+
+              <div class="topic-description">
+                <a href="#">
+                  <h5>Arun Kashyap</h5>
+                </a>
+
+                <p>in</p>
+
+                <a href="#">
+                  <h5>Nerd For Tech</h5>
+                </a>
+              </div>
+            </div>
+
+            <!-- topic title -->
+            <a class="topic-title" href="#">
+              <h4 class="capitalize">Why get rid of promises to fetch data in react?</h4>
+              <p class="capitalize">How you can make your code well structured !!</p>
+            </a>
+
+            <!-- article bottom -->
+            <div class="article-bottom">
+              <p>Jul 5 &#183; 5 min read &#183; <a href="#">React</a> &#183; Selected for you</p>
+
+              <div class="article-bottom-icon">
+                <a href="#"><ion-icon name="add"></ion-icon></a>
+                <a href="#"><ion-icon name="ellipsis-horizontal"></ion-icon></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- article image -->
+          <div class="article-img">
+            <img src="./images/coding.jpg" alt="article image">
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <!-- RIGHT SECTION -->
+    <section id="right-section">
+
+      <!-- connect your twitter -->
+      <div class="social-container">
+
+        <div class="medium-twitter-logo">
+          <img src="./images/medium-icon.svg" alt="medium logo">
+          <p id="plus">+</p>
+          <img src="./images/twitter logo.png" alt="twitter logo">
+        </div>
+
+        <p id="discover-medium">Discover Medium writers you already follow on Twitter.</p>
+        <button id="connect-btn"><ion-icon name="logo-twitter"></ion-icon> Connect to Twitter</button>
+        <a href="#">Maybe Later</a>
+      </div>
+
+      <!-- reccomended topics -->
+      <div class="reccomended-topics-container">
+        <h4 class="subtitle-right-section">Reccomended topics</h4>
+
+        <div class="topic-btns">
+          <button>Technology</button>
+          <button>Money</button>
+          <button>Business</button>
+          <button>Productivity</button>
+          <button>Psychology</button>
+          <button>Mindfulness</button>
+          <button>Art</button>
+        </div>
+      </div>
+
+      <!-- WHO TO FOLLOW -->
+      <div class="follow-who-container">
+        <h4 class="subtitle-right-section">Who to follow</h4>
+
+        <!-- profile 1 -->
+        <div class="profile-container">
+
+          <div class="profile">
+            <a href="#"><img class="profile-photo" src="./images/lessig-picture.jpg" alt="profile photo"></a>
+
+            <div class="profile-description">
+              <a href="#">
+                <h4>Lessig</h4>
+              </a>
+              <a href="#">
+                <p>Law professor, activist.</p>
+              </a>
+            </div>
+          </div>
+
+          <button class="follow-btn">Follow</button>
+        </div>
+
+        <!-- profile 2 -->
+        <div class="profile-container">
+          <div class="profile">
+            <a href="#"><img class="profile-photo" src="./images/david-picture.jpg" alt="profile photo"></a>
+
+            <div class="profile-description">
+              <a href="#">
+                <h4>David Wineberg</h4>
+              </a>
+              <a href="#">
+                <p>Author, The Straight Dope, or What I learned from my first...</p>
+              </a>
+            </div>
+          </div>
+
+          <button class="follow-btn">Follow</button>
+        </div>
+
+        <!-- profile 3 -->
+        <div class="profile-container">
+          <div class="profile">
+            <a href="#"><img class="profile-photo" src="./images/bonsu-picture.jpg" alt="profile photo"></>
+
+              <div class="profile-description">
+                <a href="#">
+                  <h4>Bonsu Thompson</h4>
+                </a>
+                <a href="#">
+                  <p>Bonsu Thompson is a writer, producer, Brooklynite and 2019...</p>
+                </a>
+              </div>
+          </div>
+
+          <button class="follow-btn">Follow</button>
+        </div>
+      </div>
+
+      <!-- SAVED TOPICS -->
+      <div class="saved-topics">
+        <h4 class="subtitle-right-section">Recently saved</h4>
+
+        <!-- topic 1 -->
+        <div class="saved-topic-container">
+
+          <div class="topic">
+            <a class="topic-img" href="#"><img class="article-border-radius" src="./images/age-of-awareness.png"
+                alt="topic image"></a>
+
+            <div class="topic-description">
+              <a href="#">
+                <h5>Eva Keiffenheim</h5>
+              </a>
+
+              <p>in</p>
+
+              <a href="#">
+                <h5>Age of Awareness</h5>
+              </a>
+            </div>
+          </div>
+
+          <a class="saved-topic-title" href="#">
+            <h4>The Feynman Technique Will Make You Remember What You Read</h4>
+            <p>Oct 2, 2020 &#183; 6 min read <ion-icon name="star"></ion-icon></p>
+          </a>
+        </div>
+
+        <!-- topic 2 -->
+        <div class="saved-topic-container">
+
+          <div class="topic">
+            <a class="topic-img" href="#"><img class="photo-border-radius" src="./images/teigen-picture.webp"
+                alt="topic image"></a>
+
+            <div class="topic-description">
+              <a href="#">
+                <h5>Chrissy Teigen</h5>
+              </a>
+            </div>
+          </div>
+
+          <a class="saved-topic-title" href="#">
+            <h4>Hi.</h4>
+            <p>Oct 27, 2020 &#183; 8 min read</p>
+          </a>
+        </div>
+
+        <!-- see all -->
+        <div id="see-all">
+          <a href="#">See all (3)</a>
+        </div>
+      </div>
+
+      <!-- HELPFULL LINKS -->
+      <div class="help-links-container">
+        <a href="#">Help</a>
+        <a href="#">Status</a>
+        <a href="#">Writer</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">About</a>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- SCRIPT ICONS -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
