@@ -125,7 +125,7 @@ input[type="search"]::-webkit-search-cancel-button {
 /* MAIN */
 main {
   display: flex;
-  max-width: 1400px;
+  max-width: 1350px;
   margin: 0 auto;
 }
 
@@ -154,13 +154,22 @@ main {
   z-index: -1;
 }
 
-.topic-selection-icon {
+.topic-selection-icon ion-icon {
   cursor: pointer;
   color: #757575;
+
+  font-size: 18px;
+  padding: 2px;
 }
 
 .topic-selection-relative ion-icon:hover {
   color: #000;
+}
+
+.add-topic ion-icon:hover {
+  background: #dcdcdc;
+  border-radius: 50%;
+  padding: 2px;
 }
 
 .topic-selection-container {
@@ -168,6 +177,9 @@ main {
   gap: 30px;
   overflow: scroll;
   white-space: nowrap;
+
+  width: 100%;
+  margin-top: 2px;
 }
 
 .topic-selection-container::after {
@@ -186,10 +198,8 @@ main {
 }
 
 .topic-selection {
-  font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
-  text-transform: uppercase;
   padding-bottom: 20px;
   color: #757575;
 }
