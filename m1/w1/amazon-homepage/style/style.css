@@ -9,6 +9,13 @@ body {
   background: #eaeded;
 }
 
+main,
+header {
+  width: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
+}
+
 .align-center {
   text-align: center;
 }
@@ -25,21 +32,17 @@ body {
   background: #354758;
 }
 
-.white-t,
+.white-text,
 nav a {
   color: white;
 }
 
-.blue-t {
+.blue-text {
   color: #167185;
 }
 
 .bold {
   font-weight: bold;
-}
-
-.side-pad {
-  padding: 0 5%;
 }
 
 .block {
@@ -84,126 +87,121 @@ nav li {
   padding: 10px 15px;
 }
 
-/* header */
+/* HEADER */
 header {
   margin-top: 140px;
 }
 
-header p {
+#header-title p {
   background: #f56600;
   margin: 20px 0;
   font-size: 22px;
   padding: 10px 0;
 }
 
+/* hero */
 .bg-img {
   background: url(../images/bg-image.png) 50%;
-  padding: 70px 0;
+  padding: 100px 0;
 }
 
-header h1 {
+#hero-title h1 {
   padding-bottom: 30px;
   font-size: 48px;
 }
 
-header h4 {
+#hero-title h4 {
   font-size: 25px;
 }
 
-/* containers */
-.perfect-gift {
-  padding: 30px 100px;
+/* CONTAINER ONE*/
+.perfect-gift-ctn {
+  padding: 25px 50px;
+  margin: 50px 0;
 }
 
-.container {
-  margin: 40px 0;
-}
-
-.container p {
+.perfect-gift-ctn p {
   font-size: 25px;
   padding-bottom: 20px;
 }
 
-.container p a {
+.perfect-gift-ctn p a {
   margin-left: 20px;
 }
 
-/* container one */
-/* Mi dispiace se ho usato flex-box ma stavo diventando pazzo senza */
-#container-one {
+#perfect-gift-img-ctn {
   display: flex;
   justify-content: space-between;
 }
 
-#container-one img {
-  width: 22%;
-  height: 650px;
+#perfect-gift-img-ctn img {
+  width: 400px;
+  height: 600px;
   object-fit: cover;
   border-radius: 20px;
   box-shadow: 5px 5px 30px 5px #bbb;
-  margin: 20px 0;
 }
 
-/* container two & three */
-#container-two img,
-#container-three img {
+/* FIGURES */
+.banner-figure-ctn {
+  margin-bottom: 40px;
+}
+
+.banner-figure-ctn img {
   width: 100%;
 }
 
-/* footer */
-#nav-foot {
-  padding: 20px 0;
+.banner-figure-ctn figcaption {
+  font-size: 25px;
+  margin-top: 5px;
 }
 
-footer a {
-  text-decoration: underline;
-  display: inline-block;
-}
-
-.bottom-logo img {
-  margin: 0 auto;
-  padding: 80px 0;
-  width: 250px;
+.banner-figure-ctn figcaption a {
+  margin-left: 10px;
 }
 
 /* EXTRA */
-#extra {
+#extra-section-ctn {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
-#extra h2 {
+.extra-panel-ctn {
+  width: 450px;
+  margin-bottom: 40px;
+  padding: 30px;
+}
+
+.extra-panel-ctn h2 {
   padding-bottom: 30px;
   font-size: 30px;
 }
 
-.container-extra {
-  width: 410px;
-  margin-bottom: 30px;
-  padding: 30px;
-}
-
-.imgs-container {
+.figure-ctn {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-bottom: 50px;
 }
 
-.img-extra {
+.figure-img-ctn {
   margin-bottom: 20px;
   position: relative;
 }
 
-.img-extra img {
-  width: 150px;
-  height: 150px;
+.figure-img-ctn img {
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   cursor: pointer;
 }
 
-.new {
+.figure-img-ctn figcaption {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.new-icon {
   scale: 40%;
   position: absolute;
   bottom: -20%;
@@ -211,4 +209,20 @@ footer a {
 }
 
 /* NEW icon image */
-/* <img class="new" src="./images/new.png" alt="new item"> */
+/* <img class="new-icon" src="./images/new.png" alt="new item"> */
+
+/* END OF PAGE */
+#nav-foot {
+  padding: 20px 0;
+}
+
+#nav-foot a {
+  text-decoration: underline;
+  display: inline-block;
+}
+
+#bottom-logo {
+  margin: 0 auto;
+  padding: 80px 0;
+  width: 250px;
+}
