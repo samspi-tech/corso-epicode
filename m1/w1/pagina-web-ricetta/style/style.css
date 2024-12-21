@@ -6,22 +6,25 @@
   font-family: "Montserrat", sans-serif;
 }
 
+main,
+footer {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
 img {
   display: block;
 }
 
 p,
 li,
-.size-20 {
+.font-20 {
   font-size: 20px;
 }
 
 .align-center {
   text-align: center;
-}
-
-.side-padding {
-  padding: 0 15%;
 }
 
 .red-text {
@@ -45,19 +48,19 @@ a:hover {
 }
 
 /* logo */
-nav img {
+.header-logo {
   width: 30%;
   margin: 0 auto;
   padding: 20px 0;
 }
 
-nav p {
+header p {
   background: #fccb70;
   border-top: 2px solid red;
   padding: 15px 0;
 }
 
-nav p span {
+header p span {
   font-weight: bold;
 }
 
@@ -67,26 +70,28 @@ nav p span {
   padding: 50px 5% 20px;
 }
 
-.img-container {
+.figure-ctn {
   height: 600px;
   margin: 15px 0;
+  padding-bottom: 50px;
 }
 
-.main-img {
+.figure-ctn img {
   width: 100%;
   max-height: 100%;
+  margin-bottom: 15px;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 5px 5px 15px 5px #757575;
 }
 
-#feature-container {
+#feature-ctn {
   border-left: 2px solid grey;
   padding-left: 20px;
   margin: 50px 0;
 }
 
-#feature-container h3 {
+#feature-ctn h3 {
   font-size: 22px;
 }
 
@@ -98,11 +103,11 @@ nav p span {
   margin-bottom: 30px;
 }
 
-.list-container {
+.list-ctn {
   margin-bottom: 20px;
 }
 
-.list-container li {
+.list-ctn li {
   margin-left: 50px;
 }
 
@@ -113,5 +118,5 @@ nav p span {
 
 /* footer */
 footer p {
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 }

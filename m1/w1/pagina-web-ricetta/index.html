@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My first page</title>
+  <title>W1D1</title>
   <link rel="stylesheet" href="./style/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +14,12 @@
 
 <body>
   <!-- logo  -->
-  <nav>
-    <img src="./images/logo.png" alt="logo simply recipes">
+  <header>
+    <img class="header-logo" src="./images/logo.png" alt="logo simply recipes">
     <p class="align-center">Part of <span class="uppercase-text">a simply fabulous thanksgiving</span></p>
-  </nav>
+  </header>
 
-  <main class="side-padding">
+  <main>
     <!-- introduction -->
     <section>
       <h1 id="title" class="align-center">Focaccia with Caramelized Onions, Cranberries, and Brie</h1>
@@ -27,14 +27,14 @@
         onions, tart
         cranberries, and creamy brie. It will become your new favorite holiday starter!</p>
 
-      <div class="img-container">
-        <img class="main-img" src="./images/img.webp" alt="focaccia image">
-      </div>
-      <p class="align-center grey-text">Image: Sally Vegas</p>
+      <figure class="figure-ctn">
+        <img src="./images/img.webp" alt="focaccia image">
+        <figcaption class="align-center grey-text font-20">Image: Sally Vegas</figcaption>
+      </figure>
 
-      <div id="feature-container">
+      <div id="feature-ctn">
         <h3 class="red-text uppercase-text">Featured in:</h3>
-        <h4><a class="grey-text size-20 capital-text" href="#">Fresh cranberry recipes that go beyond sauce</a></h4>
+        <h4><a class="grey-text font-20 capital-text" href="#">Fresh cranberry recipes that go beyond sauce</a></h4>
       </div>
     </section>
 
@@ -42,8 +42,8 @@
     <section>
       <h2 class="subtitle">Ingredients</h2>
 
-      <div class="list-container ingredients">
-        <h4 class="size-20">For the focaccia:</h4>
+      <div class="list-ctn ingredients">
+        <h4 class="font-20">For the focaccia:</h4>
         <ul>
           <li>4 cups (500g) all-purpose flour</li>
           <li>11/2 teaspoons instant yeast</li>
@@ -53,8 +53,8 @@
         </ul>
       </div>
 
-      <div class="list-container ingredients">
-        <h4 class="size-20">For the topping:</h4>
+      <div class="list-ctn ingredients">
+        <h4 class="font-20">For the topping:</h4>
         <ul>
           <li>3 medium yellow onions, thinly sliced</li>
           <li>1 tablespoon balsamic vinegar</li>
@@ -68,7 +68,7 @@
       <!-- method -->
       <h2 class="subtitle">Method</h2>
 
-      <div class="list-container method">
+      <div class="list-ctn method">
         <ol>
           <li>
             <h4>Make the focaccia dough</h4>
@@ -82,7 +82,7 @@
   </main>
 
   <!-- footer -->
-  <footer class="side-padding">
+  <footer>
     <p>Read more on <a class="capital-text" href="#">Simply recipes</a></p>
   </footer>
 </body>
