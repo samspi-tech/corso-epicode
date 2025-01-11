@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2[W2D4]</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="main-container">
+    <div id="recent-user" class="hidden"></div>
+
+    <div class="card-container">
+      <div class="labels-container">
+        <label class="label-text" for="userName">First Name</label>
+        <input class="input-area" type="text" name="userName" id="userName" placeholder="ex. Marco" required>
+
+        <label class="label-text" for="userLastName">Last Name</label>
+        <input class="input-area" type="text" name="userLastName" id="userLastName" placeholder="ex. Rossi" required>
+
+        <label class="label-text" for="userCheckout">Checkout</label>
+        <div class="checkout-input-container">
+          <input class="input-area" type="number" name="userCheckout" id="userCheckout" placeholder="Enter a number"
+            required>
+          <p id="euro-icon">€</p>
+        </div>
+
+        <p class="text-message">If your checkout is more than 100€ you get FREE Shipping! AND if you are an ambassador
+          you
+          get
+          30% off your total <span>(before shipping fee)</span>!</p>
+
+        <button class="btn-verify" onclick="verify()">Verify</button>
+      </div>
+
+      <div id="outcome" class="hidden"></div>
+    </div>
+
+    <div id="user-profile" class="hidden"></div>
+  </div>
+</body>
+
+<script src="./script.js"></script>
+
+</html>
