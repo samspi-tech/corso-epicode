@@ -26,16 +26,15 @@ body {
     border-radius: 10px;
     padding: 20px;
     width: 350px;
-    /* height: 450px; */
 }
 
+/* label */
 .labels-container {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-/* label */
 .label-text {
     font-size: 22px;
     font-weight: 300;
@@ -100,6 +99,19 @@ input[type='number']::-webkit-outer-spin-button {
     margin: 0;
 }
 
+.text-message {
+    background: #e76f51;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.text-message span {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+}
+
 /* button */
 .btn-verify {
     align-self: flex-end;
@@ -123,19 +135,7 @@ input[type='number']::-webkit-outer-spin-button {
     background: #1b675e;
 }
 
-.text-message {
-    background: #e76f51;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.text-message span {
-    font-size: 13px;
-    font-style: italic;
-    font-weight: 500;
-}
-
+/* Checkout message */
 #outcome {
     margin-top: 20px;
     background: #fff;
@@ -143,6 +143,7 @@ input[type='number']::-webkit-outer-spin-button {
     padding: 10px;
 }
 
+/* User role message on the right */
 #user-profile {
     align-self: flex-end;
 
@@ -155,6 +156,7 @@ input[type='number']::-webkit-outer-spin-button {
     color: #fff;
 }
 
+/* Recent user list on the left */
 #recent-user {
     align-self: flex-start;
 

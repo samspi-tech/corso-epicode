@@ -107,6 +107,7 @@ const showRecentUser = () => recentUser.classList.remove('hidden');
 
 const recentUserArr = [];
 
+// Button verify
 const verify = function () {
     let userName = firstName.value;
     let userLastName = lastName.value;
@@ -116,7 +117,7 @@ const verify = function () {
     checkout.value = '';
 
     for (const user of users) {
-        // Check if user gets discount or not
+        // Function: check if user gets discount or not
         const userCheckoutFn = () =>
             user.isAmbassador
                 ? (userCheckout -= Math.trunc(userCheckout * 0.3))
@@ -176,9 +177,16 @@ const verify = function () {
         userProfile.innerText = `Welcome ${userName.toUpperCase()} ${userLastName.toUpperCase()},\nyou have no role.`;
     }
 
-    showRecentUser();
-    recentUserArr.push(`${userName} ${userLastName}: ${userCheckout}€`);
-    recentUser.innerText = `RECENT USERS:\n${recentUserArr.join('\n')}`;
+    // Show list of recent users on the left
+    if (userName && userLastName && userCheckout) {
+        showRecentUser();
+        recentUserArr.push(
+            `${userName} ${userLastName}: ${
+                userCheckout > 100 ? userCheckout : userCheckout + shippingCost
+            }€`
+        );
+        recentUser.innerText = `RECENT USERS:\n${recentUserArr.join('\n')}`;
+    }
 };
 
 // Verify with pressing Enter Key
