@@ -34,7 +34,7 @@ const amy = {
     isAmbassador: false,
 };
 
-const prices = [95, 5, 2];
+const prices = [50, 24, 3];
 const shippingCost = 50;
 
 // START
@@ -44,40 +44,30 @@ users.push(marco, paul, amy);
 const ambassadors = [];
 
 for (const user of users) {
-    // Total Shipping Cost
+    // Total checkout from prices
     let checkout = 0;
     for (const price of prices) {
         checkout += price;
     }
 
-    // Function: check if user gets discount or not
+    // Fn: check if user gets discount or not
     const checkoutFn = () =>
         user.isAmbassador ? (checkout -= (checkout * 30) / 100) : checkout;
 
-    // Total Checkout
-    if (checkout >= 100) {
-        if (checkoutFn() >= 100) {
-            console.log(
-                `${user.name} your total is ${checkout}€ with FREE Shipping!`
-            );
-        } else {
-            console.log(
-                `${
-                    user.name
-                } your checkout is ${checkout}€ + ${shippingCost}€: total ${
-                    checkout + shippingCost
-                }€. Spend another ${
-                    100 - Math.trunc(checkout)
-                }€ to get FREE Shipping!`
-            );
-        }
+    // Checkout
+    if (checkoutFn() >= 100) {
+        console.log(
+            `${user.name} your total is ${checkout}€ with FREE Shipping!`
+        );
     } else {
         console.log(
             `${
                 user.name
-            } your checkout is ${checkoutFn()}€ + ${shippingCost}€ for shipping: total ${
+            } your checkout is ${checkout}€ + ${shippingCost}€: total ${
                 checkout + shippingCost
-            }€. Spend another ${100 - checkout}€ to get FREE Shipping!`
+            }€. Spend another ${
+                100 - Math.trunc(checkout)
+            }€ to get FREE Shipping!`
         );
     }
 
@@ -101,11 +91,20 @@ let outcome = document.getElementById('outcome');
 let userProfile = document.getElementById('user-profile');
 let recentUser = document.getElementById('recent-user');
 
-const showOutcome = () => outcome.classList.remove('hidden');
-const showUserProfile = () => userProfile.classList.remove('hidden');
-const showRecentUser = () => recentUser.classList.remove('hidden');
+const showOutcome = function (str) {
+    outcome.classList.remove('hidden');
+    outcome.innerText = str;
+};
+const showUserProfile = function (str) {
+    userProfile.classList.remove('hidden');
+    userProfile.innerText = str;
+};
+const showRecentUser = function (str) {
+    recentUser.classList.remove('hidden');
+    recentUser.innerText = str;
+};
 
-const recentUserArr = [];
+let recentUserArr = [];
 
 // Button verify
 const verify = function () {
@@ -116,80 +115,61 @@ const verify = function () {
     lastName.value = '';
     checkout.value = '';
 
-    for (const user of users) {
-        // Function: check if user gets discount or not
-        const userCheckoutFn = () =>
-            user.isAmbassador
-                ? (userCheckout -= Math.trunc(userCheckout * 0.3))
-                : userCheckout;
+    // Fn: check if user is ambassador
+    const isAmbassador = () =>
+        ambassadors.includes(`${userName} ${userLastName}`);
 
-        if (userName === user.name && userLastName === user.lastName) {
-            // Total Checkout
-            if (userCheckout > 100) {
-                if (userCheckoutFn() > 100) {
-                    showOutcome();
-                    outcome.innerText = `${userName} your total is ${userCheckout}€ with FREE Shipping!`;
-                } else {
-                    showOutcome();
-                    outcome.innerText = `${userName} your checkout is ${userCheckout}€ + ${shippingCost}€: total ${
-                        userCheckout + shippingCost
-                    }€. Spend another ${
-                        100 - userCheckout
-                    }€ to get FREE Shipping!`;
-                }
-            } else {
-                showOutcome();
-                outcome.innerText = `${userName} your checkout is ${userCheckoutFn()}€ + \n${shippingCost}€ for shipping => TOTAL: ${
-                    userCheckout + shippingCost
-                }€.\nSpend another ${
-                    100 - userCheckout
-                }€ to get FREE Shipping!`;
-            }
-        } else if (userCheckout > 100) {
-            showOutcome();
-            outcome.innerText = `${userName} your total is ${userCheckout}€ with FREE Shipping!`;
-        } else {
-            showOutcome();
-            outcome.innerText = `${userName} your checkout is ${userCheckout}€ + \n${shippingCost}€ for shipping => TOTAL: ${
+    // Fn: check if user gets discount or not
+    const userCheckoutFn = () =>
+        isAmbassador()
+            ? (userCheckout -= Math.trunc(userCheckout * 0.3))
+            : userCheckout;
+
+    // Fn: check for valid input
+    const isInputFilled = () => userName && userLastName && userCheckout;
+
+    // Total Checkout
+    if (userCheckoutFn() >= 100) {
+        showOutcome(
+            `${userName} your total is ${userCheckout}€ with FREE Shipping!`
+        );
+    } else {
+        showOutcome(
+            `${userName} your checkout is ${userCheckout}€ + ${shippingCost}€: total ${
                 userCheckout + shippingCost
-            }€.\nSpend another ${100 - userCheckout}€ to get FREE Shipping!`;
-        }
+            }€. Spend another ${100 - userCheckout}€ to get FREE Shipping!`
+        );
     }
 
     // Hide message on the right and give error message when missing or invalid input
     if (!userName || !userLastName || !userCheckout) {
-        showOutcome();
         userProfile.classList.add('hidden');
-        outcome.innerText = 'Invalid or missing input!';
+        showOutcome('Invalid or missing input!');
     }
 
-    // Show message on the right with user name and role
-    if (ambassadors.includes(`${userName} ${userLastName}`) && userCheckout) {
-        showUserProfile();
-        userProfile.innerText = `Welcome back\nambassador\n${userName.toUpperCase()} ${userLastName.toUpperCase()},\nenjoy your 30% discount.`;
-    } else if (
-        !ambassadors.includes(`${userName} ${userLastName}`) &&
-        userName &&
-        userLastName &&
-        userCheckout
-    ) {
-        showUserProfile();
-        userProfile.innerText = `Welcome ${userName.toUpperCase()} ${userLastName.toUpperCase()},\nyou have no role.`;
+    // Check inputs and show message on the right with user name and role
+    if (isAmbassador() && isInputFilled()) {
+        showUserProfile(
+            `Welcome back\nambassador\n${userName.toUpperCase()} ${userLastName.toUpperCase()},\nenjoy your 30% discount.`
+        );
+    } else if (!isAmbassador() && isInputFilled()) {
+        showUserProfile(
+            `Welcome ${userName.toUpperCase()} ${userLastName.toUpperCase()},\nyou have no role.`
+        );
     }
 
     // Show list of recent users on the left
-    if (userName && userLastName && userCheckout) {
-        showRecentUser();
+    if (isInputFilled()) {
         recentUserArr.push(
             `${userName} ${userLastName}: ${
-                userCheckout > 100 ? userCheckout : userCheckout + shippingCost
+                userCheckout >= 100 ? userCheckout : userCheckout + shippingCost
             }€`
         );
-        recentUser.innerText = `RECENT USERS:\n${recentUserArr.join('\n')}`;
+        showRecentUser(`RECENT USERS:\n${recentUserArr.join('\n')}`);
     }
 };
 
-// Verify with pressing Enter Key
+// Verify pressing Enter Key
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
         verify();
