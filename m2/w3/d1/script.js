@@ -59,11 +59,13 @@ console.log(upperFirst('hello world!'));
  Scrivi una funzione chiamata "giveMeRandom", che accetta come parametro un numero chiamato n e ritorna un array contenente n numeri random contenuti tra 0 e 10.
 */
 
+const dice = Math.floor(Math.random() * 11);
+
 function giveMeRandom(n) {
-    return n.split();
+    return String(n).split();
 }
 
-console.log(giveMeRandom(String(Math.floor(Math.random() * 10) + 1)));
+console.log(giveMeRandom(dice));
 
 //EXTRA:
 /* ESERCIZIO 1
