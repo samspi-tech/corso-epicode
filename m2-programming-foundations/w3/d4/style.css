@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    background: #e8e8e8;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+#title {
+    font-size: 58px;
+}
+
+.btn-change-body-theme {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background: #000;
+    margin: 20px 0;
+}
+
+th {
+    padding: 15px 0;
+    font-size: 28px;
+}
+
+tbody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 10px;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #808080;
+}
+
+.img-ctn {
+    min-width: 200px;
+    min-height: 310px;
+}
+
+.textarea-ctn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-width: 179px;
+    min-height: 81px;
+}
+
+textarea {
+    margin-bottom: 5px;
+    resize: none;
+}
+
+textarea::placeholder {
+    padding-left: 5px;
+}
+
+.textarea-ctn button {
+    padding: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #b58d66;
+    border: none;
+}
+
+.textarea-ctn button:hover {
+    background: #a88461;
+}
+
+.textarea-ctn button:active {
+    background: #8c6f51;
+}
+
+footer {
+    border-top: 1px solid #bebebe;
+    text-align: center;
+    padding: 20px 0;
+    width: 90%;
+    font-size: 24px;
+}
+
+footer p:first-child {
+    font-weight: 900;
+}
+
+.shop-address {
+    font-style: italic;
+}
+
+button {
+    cursor: pointer;
+}
+
+.amazon-link {
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fefae0;
+    background: #d4a373;
+    transition: 250ms;
+}
+.amazon-link:hover {
+    background: #b58d66;
+}
+
+.product-price {
+    font-size: 34px;
+    font-weight: 500;
+}
+
+.hidden {
+    display: none;
+}
