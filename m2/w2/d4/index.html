@@ -18,15 +18,16 @@
 
     <div class="card-container">
       <div class="labels-container">
-        <label class="label-text" for="userName">First Name</label>
-        <input class="input-area" type="text" name="userName" id="userName" placeholder="ex. Marco" required>
+        <label class="label-text" for="user-name">First Name</label>
+        <input class="input-area" type="text" name="user-name" id="user-name" placeholder="ex. Marco" required>
 
-        <label class="label-text" for="userLastName">Last Name</label>
-        <input class="input-area" type="text" name="userLastName" id="userLastName" placeholder="ex. Rossi" required>
+        <label class="label-text" for="user-last-name">Last Name</label>
+        <input class="input-area" type="text" name="user-last-name" id="user-last-name" placeholder="ex. Rossi"
+          required>
 
         <label class="label-text" for="userCheckout">Checkout</label>
         <div class="checkout-input-container">
-          <input class="input-area" type="number" name="userCheckout" id="userCheckout" placeholder="Enter a number"
+          <input class="input-area" type="number" name="user-checkout" id="user-checkout" placeholder="Enter a number"
             required>
           <p id="euro-icon">€</p>
         </div>
@@ -36,7 +37,7 @@
           get
           30% off your total <span>(before shipping fee)</span>!</p>
 
-        <button class="btn-verify" onclick="verify()">Verify</button>
+        <button class="btn-verify">Verify</button>
       </div>
 
       <div id="outcome" class="hidden"></div>

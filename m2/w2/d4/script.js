@@ -83,13 +83,15 @@ for (const user of users) {
 }
 
 // EXTRA
-let firstName = document.getElementById('userName');
-let lastName = document.getElementById('userLastName');
-let checkout = document.getElementById('userCheckout');
-
+let firstName = document.getElementById('user-name');
+let lastName = document.getElementById('user-last-name');
+let checkout = document.getElementById('user-checkout');
 let outcome = document.getElementById('outcome');
 let userProfile = document.getElementById('user-profile');
 let recentUser = document.getElementById('recent-user');
+
+const recentUserArr = [];
+const btnVerify = document.querySelector('.btn-verify');
 
 const showOutcome = function (str) {
     outcome.classList.remove('hidden');
@@ -104,10 +106,19 @@ const showRecentUser = function (str) {
     recentUser.innerText = str;
 };
 
-let recentUserArr = [];
+const isAmbassador = (name, lastName) =>
+    ambassadors.includes(`${name} ${lastName}`);
 
-// Button verify
-const verify = function () {
+const totalCheckout = (fn, checkout) =>
+    fn ? (checkout -= Math.trunc(checkout * 0.3)) : checkout;
+
+const isEveryInputFilled = (name, lastName, checkout) =>
+    name && lastName && checkout;
+
+const isAnyInputMissing = (name, lastName, checkout) =>
+    !name || !lastName || !checkout;
+
+const verify = () => {
     let userName = firstName.value;
     let userLastName = lastName.value;
     let userCheckout = Number(checkout.value);
@@ -115,63 +126,64 @@ const verify = function () {
     lastName.value = '';
     checkout.value = '';
 
-    // Fn: check if user is ambassador
-    const isAmbassador = () =>
-        ambassadors.includes(`${userName} ${userLastName}`);
-
-    // Fn: check if user gets discount or not
-    const userCheckoutFn = () =>
-        isAmbassador()
-            ? (userCheckout -= Math.trunc(userCheckout * 0.3))
-            : userCheckout;
-
-    // Fn: check for valid input
-    const isInputFilled = () => userName && userLastName && userCheckout;
+    const isInputUserAmbassador = isAmbassador(userName, userLastName);
+    const inputCheckout = totalCheckout(isInputUserAmbassador, userCheckout);
+    const everyInputFilled = isEveryInputFilled(
+        userName,
+        userLastName,
+        userCheckout
+    );
+    const inputMissing = isAnyInputMissing(
+        userName,
+        userLastName,
+        userCheckout
+    );
 
     // Total Checkout
-    if (userCheckoutFn() >= 100) {
-        showOutcome(
-            `${userName} your total is ${userCheckout}€ with FREE Shipping!`
-        );
-    } else {
-        showOutcome(
-            `${userName} your checkout is ${userCheckout}€ + ${shippingCost}€: total ${
-                userCheckout + shippingCost
-            }€. Spend another ${100 - userCheckout}€ to get FREE Shipping!`
-        );
-    }
+    inputCheckout >= 100
+        ? showOutcome(
+              `${userName} your total is ${inputCheckout}€ with FREE Shipping!`
+          )
+        : showOutcome(
+              `${userName} your checkout is ${inputCheckout}€ + ${shippingCost}€: total ${
+                  inputCheckout + shippingCost
+              }€. Spend another ${100 - inputCheckout}€ to get FREE Shipping!`
+          );
 
-    // Hide message on the right and give error message when missing or invalid input
-    if (!userName || !userLastName || !userCheckout) {
+    // Hide message on the right and give error message when missing input
+    if (inputMissing) {
         userProfile.classList.add('hidden');
-        showOutcome('Invalid or missing input!');
+        showOutcome('Missing input!');
     }
 
     // Check inputs and show message on the right with user name and role
-    if (isAmbassador() && isInputFilled()) {
+    if (isInputUserAmbassador && everyInputFilled) {
         showUserProfile(
-            `Welcome back\nambassador\n${userName.toUpperCase()} ${userLastName.toUpperCase()},\nenjoy your 30% discount.`
+            `Welcome back\nambassador\n${userName} ${userLastName},\nenjoy your 30% discount.`
         );
-    } else if (!isAmbassador() && isInputFilled()) {
+    } else if (!isInputUserAmbassador && everyInputFilled) {
         showUserProfile(
-            `Welcome ${userName.toUpperCase()} ${userLastName.toUpperCase()},\nyou have no role.`
+            `Welcome ${userName} ${userLastName},\nyou have no role.`
         );
     }
 
     // Show list of recent users on the left
-    if (isInputFilled()) {
+    if (everyInputFilled) {
         recentUserArr.push(
             `${userName} ${userLastName}: ${
-                userCheckout >= 100 ? userCheckout : userCheckout + shippingCost
+                inputCheckout >= 100
+                    ? inputCheckout
+                    : inputCheckout + shippingCost
             }€`
         );
         showRecentUser(`RECENT USERS:\n${recentUserArr.join('\n')}`);
     }
 };
 
-// Verify pressing Enter Key
+// Verify by pressing button Verify
+btnVerify.addEventListener('click', verify);
+
+// Verify by pressing Enter Key
 document.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') {
-        verify();
-    }
+    e.key === 'Enter' && verify();
 });
