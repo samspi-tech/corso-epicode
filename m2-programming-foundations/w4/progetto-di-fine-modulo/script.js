@@ -124,148 +124,132 @@ const jobs = [
 ];
 
 // PART 1
-let results = [];
 let count = 0;
+let results = [];
 
-const searchJob = (title, location) => {
+const trimAndToLowerCase = text => {
+    return text.trim().toLowerCase();
+};
+
+const searchJob = (inputTitle, inputLocation) => {
+    inputTitle = trimAndToLowerCase(inputTitle);
+    inputLocation = trimAndToLowerCase(inputLocation);
+
     jobs.forEach(job => {
-        if (
-            job.title
-                .trim()
-                .toLowerCase()
-                .includes(title.trim().toLowerCase()) &&
-            job.location
-                .trim()
-                .toLowerCase()
-                .includes(location.trim().toLowerCase())
-        ) {
-            results.push(job);
-            count = results.length;
-        }
+        const jobsTitle = trimAndToLowerCase(job.title);
+        const jobsLocation = trimAndToLowerCase(job.location);
+        const isJobAvailable =
+            jobsTitle.includes(inputTitle) &&
+            jobsLocation.includes(inputLocation);
+
+        isJobAvailable && results.push(job);
+        count = results.length;
     });
 };
-// searchJob('dev', 'us');
+searchJob('dEv ', ' uS  ');
 
-// console.log(count, ...results);
+console.log(count, ...results);
 
 // PART 2
-// Get elements from HTML
 const title = document.querySelector('h1');
-const main = document.querySelector('main');
+const mainContainer = document.querySelector('main');
 const jobTitle = document.getElementById('job-title');
 const searchBtn = document.getElementById('search-btn');
+const ulContainer = document.getElementById('job-list');
 const jobLocation = document.getElementById('job-location');
 
-// Create new elements with JS
-const ul = document.createElement('ul');
-const resultsList = document.createElement('div');
 const errorMessage = document.createElement('div');
-
-// Add CSS Style to new elements
-resultsList.classList.add('results-list');
 errorMessage.classList.add('error-message');
 
-let list = '';
-let jobTitleValue;
-let jobLocationValue;
+let jobList = '';
+let titleValue, locationValue;
 
-// Change text
-const text = (param, str) => {
-    param.textContent = str;
+const showText = (element, text) => {
+    element.textContent = text;
 };
 
-// Append element
-const appendElement = (param1, param2) => {
-    param1.append(param2);
+const appendElement = (firstElement, secondElement) => {
+    firstElement.append(secondElement);
 };
 
-// Remove elements
-const removeElement = param => {
-    param.remove();
+const removeElement = element => {
+    element.remove();
 };
 
-// Get values from inputs and send them to Search Job function
-const getUserInputs = () => {
-    jobTitleValue = jobTitle.value;
-    jobLocationValue = jobLocation.value;
+const getValuesAndResetValues = () => {
+    titleValue = jobTitle.value;
+    locationValue = jobLocation.value;
     jobTitle.value = '';
     jobLocation.value = '';
-
-    // Get results with at least one input
-    if (jobTitleValue !== '' || jobLocationValue !== '') {
-        searchJob(jobTitleValue, jobLocationValue);
-    }
 };
 
-// Loop results array to get each element
+const isInputFilled = () => {
+    return (
+        (titleValue !== '' && titleValue.length >= 3) ||
+        (locationValue !== '' && locationValue.length >= 2)
+    );
+};
+
+const sendValuesToSearchJob = () => {
+    getValuesAndResetValues();
+    isInputFilled() && searchJob(titleValue, locationValue);
+};
+
 const getResults = () => {
     results.forEach(result => {
-        list += `<li>
-                    <p><span>Job Title</span>${result.title}</p>
-                    <p><span>Location</span>${result.location}</p>
-                 </li>`;
+        jobList += `<li>
+                      <p><span>Job Title</span>${result.title}</p>
+                      <p><span>Location</span>${result.location}</p>
+                    </li>`;
     });
 
-    ul.innerHTML = list;
-    appendElement(resultsList, ul);
+    ulContainer.innerHTML = jobList;
 };
 
-// Show list with results and number of results
+const resetResults = () => {
+    count = 0;
+    results = [];
+    jobList = '';
+};
+
 const showResults = () => {
-    text(
+    showText(
         title,
-        `${count === 0 ? 'Sorry, we' : 'We'} found ${count} ${
-            count === 1 ? 'job' : 'jobs'
-        } for you...`
+        `${
+            count === 0
+                ? "Sorry, we didn't find any job..."
+                : `We found ${count} ${count === 1 ? 'job' : 'jobs'} for you...`
+        }`
     );
     removeElement(errorMessage);
-    appendElement(main, resultsList);
-    text(searchBtn, 'New Search');
+    appendElement(mainContainer, ulContainer);
 };
 
-// Show error message if inputs are not correct
 const showError = () => {
-    text(title, 'Looking For A Job?');
-    text(
+    showText(title, 'Looking For A Job?');
+    showText(
         errorMessage,
         'Minimum characters required: 3 for title, 2 for location. Thank you!'
     );
-    text(searchBtn, 'Search');
-    removeElement(resultsList);
-    appendElement(main, errorMessage);
+    removeElement(ulContainer);
+    appendElement(mainContainer, errorMessage);
 };
 
-// Reset results before showing new ones
-const resetResults = () => {
-    list = '';
-    count = 0;
-    results = [];
-};
-
-/* Show list only if job position has at least 3 characters
-or if job location has at least 2 characters */
 const appendResults = () => {
     resetResults();
-    getUserInputs();
+    sendValuesToSearchJob();
     getResults();
-
-    jobTitleValue.length >= 3 || jobLocationValue.length >= 2
-        ? showResults()
-        : showError();
+    isInputFilled() ? showResults() : showError();
 };
 
-// Show results by pressing Enter key
 const enterKey = e => {
     if (e.key === 'Enter') {
         appendResults();
     }
 };
 
-// EVENTS
-// Search button
 searchBtn.addEventListener('click', () => {
     appendResults();
 });
 
-// Enter key
 document.addEventListener('keydown', enterKey);

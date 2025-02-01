@@ -32,9 +32,9 @@ main {
 }
 
 h1 {
-    padding: 10px;
     font-size: 60px;
     line-height: 60px;
+    padding: 30px 10px;
     font-family: 'DM Serif Text', sans-serif;
 }
 
@@ -46,6 +46,10 @@ h1 {
     padding: 10px 5px;
     border-radius: 10px;
     background-color: #fff;
+}
+
+#job-title {
+    width: 50%;
 }
 
 #inputs-ctn input {
@@ -102,7 +106,7 @@ h1 {
     letter-spacing: normal;
 }
 
-.results-list {
+#job-list {
     align-self: center;
 
     width: 550px;
@@ -115,7 +119,7 @@ h1 {
     scrollbar-color: #5e6472 #faf3dd;
 }
 
-.results-list li {
+#job-list li {
     display: flex;
 
     padding: 10px;
@@ -127,7 +131,7 @@ h1 {
     box-shadow: 0px 5px 10px 0px #5e6472;
 }
 
-.results-list p {
+#job-list p {
     display: flex;
     flex-direction: column;
 
@@ -136,13 +140,13 @@ h1 {
     padding: 1px 1px 5px 5px;
 }
 
-.results-list p:first-child {
+#job-list p:first-child {
     margin-right: 15px;
     padding-right: 20px;
     border-right: 1px solid #d7d7d7;
 }
 
-.results-list span {
+#job-list span {
     padding: 0 5px;
     font-size: 24px;
     margin-bottom: 5px;
