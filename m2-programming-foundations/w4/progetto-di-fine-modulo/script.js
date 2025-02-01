@@ -248,8 +248,5 @@ const enterKey = e => {
     }
 };
 
-searchBtn.addEventListener('click', () => {
-    appendResults();
-});
-
+searchBtn.addEventListener('click', appendResults);
 document.addEventListener('keydown', enterKey);
