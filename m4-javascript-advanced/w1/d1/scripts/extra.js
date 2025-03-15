@@ -71,7 +71,7 @@ const reverseStr = str => {
 const checkForPalidrome = str => {
     str = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()' ']/g, '').toLowerCase();
 
-    return str == reverseStr(str);
+    return str === reverseStr(str);
 };
 
 console.log(checkForPalidrome('saippuakivikauppias'));
