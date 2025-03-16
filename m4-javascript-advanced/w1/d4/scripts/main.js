@@ -39,6 +39,10 @@ const getMusic = async artist => {
     }
 };
 
+const showSection = section => {
+    document.getElementById(section).classList.remove('d-none');
+};
+
 const songDuration = time => {
     const minutes = Math.trunc(time / 60);
     const seconds = String(Math.trunc(time % 60)).padStart(2, 0);
@@ -86,11 +90,7 @@ const generateModalPlaylist = data => {
         modalPlaylist.appendChild(modalItemList);
     });
 
-    modalPlaylistContainer.appendChild(modalPlaylist);
-};
-
-const showSection = section => {
-    document.getElementById(section).classList.remove('d-none');
+    return modalPlaylistContainer.appendChild(modalPlaylist);
 };
 
 const generateAlbums = (appender, data) => {
@@ -106,7 +106,7 @@ const generateAlbums = (appender, data) => {
         albumDescription.innerText = element.title_short;
 
         album.append(albumCover, albumDescription);
-        appender.appendChild(album);
+        return appender.appendChild(album);
     });
 };
 
@@ -114,7 +114,6 @@ const appendFetchedData = (container, artist) => {
     getMusic(artist)
         .then(results => results.data)
         .then(data => {
-            console.log(data);
             showSection(artist);
             generateModalPlaylist(data);
             generateAlbums(container, data);
