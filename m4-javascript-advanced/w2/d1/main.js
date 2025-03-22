@@ -32,6 +32,8 @@ dropdownItem.forEach(item => {
     });
 });
 
+const getUserInput = () => inputSearch.value;
+
 const showSpinner = () => spinner.classList.remove('hidden');
 const removeSpinner = () => spinner.classList.add('hidden');
 
@@ -41,10 +43,6 @@ const showAlert = errorText => {
 };
 
 const removeAlert = () => alert.classList.add('hidden');
-
-const getUserInput = () => {
-    return inputSearch.value;
-};
 
 // GENERATE IMAGE CARD
 const generateImageCard = data => {
