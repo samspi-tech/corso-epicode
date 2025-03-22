@@ -6,8 +6,6 @@ let isSearched = false;
 let pageIndexNumber = 1;
 
 const categories = ['animals', 'ocean', 'people', 'city', 'cars'];
-const contentContainer = document.querySelector('.content-container');
-
 const randomIndex = Math.floor(Math.random() * categories.length);
 const randomWord = categories[randomIndex];
 
@@ -15,6 +13,7 @@ const inputSearch = document.getElementById('inputSearch');
 const searchButton = document.querySelector('.search-btn');
 const dropdownItem = document.querySelectorAll('.dropdown-item');
 const dropdownMenuButton = document.querySelector('.dropdown-toggle');
+const contentContainer = document.querySelector('.content-container');
 
 const spinner = document.querySelector('.spinner');
 const alert = document.querySelector('.alert-container');
@@ -33,72 +32,15 @@ dropdownItem.forEach(item => {
     });
 });
 
-const showSpinner = () => {
-    spinner.classList.remove('hidden');
-};
-
-const removeSpinner = () => {
-    spinner.classList.add('hidden');
-};
+const showSpinner = () => spinner.classList.remove('hidden');
+const removeSpinner = () => spinner.classList.add('hidden');
 
 const showAlert = errorText => {
     alert.classList.remove('hidden');
     alert.childNodes[1].innerHTML = errorText;
 };
 
-const removeAlert = () => {
-    alert.classList.add('hidden');
-};
-
-const isUserSearchingPhotos = () => {
-    return dropdownMenuButton.innerText === 'Photos'
-        ? getContentFromUserInput('v1', initialPage, getUserInput()).then(
-              response =>
-                  response.photos.forEach(photo => generateImageCard(photo))
-          )
-        : getContentFromUserInput('videos', initialPage, getUserInput()).then(
-              response =>
-                  response.videos.forEach(video => generateVideoCard(video))
-          );
-};
-
-const isIinitial = () => {
-    return isSearched
-        ? getInitialRandomPhotos(initialPage).then(response =>
-              response.photos.forEach(photo => generateImageCard(photo))
-          )
-        : isUserSearchingPhotos();
-};
-
-const prevPage = () => {
-    contentContainer.innerHTML = '';
-
-    if (initialPage > 1) {
-        initialPage--;
-        pageIndexNumber--;
-        pageIndex.innerText = pageIndexNumber;
-    }
-
-    isIinitial();
-};
-
-const nextPage = () => {
-    contentContainer.innerHTML = '';
-
-    initialPage++;
-    pageIndexNumber++;
-    pageIndex.innerText = pageIndexNumber;
-
-    isIinitial();
-};
-
-prevBtn.addEventListener('click', () => {
-    prevPage(isSearched);
-});
-
-nextBtn.addEventListener('click', () => {
-    nextPage(isSearched);
-});
+const removeAlert = () => alert.classList.add('hidden');
 
 const getUserInput = () => {
     return inputSearch.value;
@@ -179,12 +121,15 @@ const getInitialRandomPhotos = async page => {
     }
 };
 
-getInitialRandomPhotos(initialPage)
-    .then(response => {
-        response.photos.forEach(photo => generateImageCard(photo));
-        isSearched = true;
-    })
-    .catch(error => showAlert('Failed to fetch data!'));
+const getRandomPhotos = () =>
+    getInitialRandomPhotos(initialPage)
+        .then(response => {
+            response.photos.forEach(photo => generateImageCard(photo));
+            isSearched = true;
+        })
+        .catch(error => showAlert('Failed to fetch data!'));
+
+getRandomPhotos();
 
 // GET IMAGES OR VIDEOS FROM USER INPUT
 const getContentFromUserInput = async (searchType, initialPage, searchTerm) => {
@@ -215,38 +160,75 @@ const errorMessage = () => {
         : showAlert('Type of search not selected.');
 };
 
-const displayResults = () => {
-    errorMessage();
+const getPhotos = () =>
+    getContentFromUserInput('v1', initialPage, getUserInput())
+        .then(response =>
+            response.photos.forEach(photo => generateImageCard(photo))
+        )
+        .catch(error => {
+            showAlert('Input missing or not valid.');
+        });
+
+const getVideos = () =>
+    getContentFromUserInput('videos', initialPage, getUserInput())
+        .then(response =>
+            response.videos.forEach(video => generateVideoCard(video))
+        )
+        .catch(error => {
+            showAlert('Input missing or not valid.');
+        });
+
+const resetParameters = () => {
     initialPage = 1;
     isSearched = false;
     pageIndexNumber = 1;
     pageIndex.innerText = 1;
     contentContainer.innerHTML = '';
+};
+
+const displayResults = () => {
+    errorMessage();
+    resetParameters();
     const isSearchTypePhotos = dropdownMenuButton.innerText === 'Photos';
     const isSearchTypeVideos = dropdownMenuButton.innerText === 'Videos';
 
     if (isSearchTypePhotos) {
-        getContentFromUserInput('v1', initialPage, getUserInput())
-            .then(response =>
-                response.photos.forEach(photo => {
-                    generateImageCard(photo);
-                })
-            )
-            .catch(error => {
-                showAlert('Missing input or input not valid.');
-            });
+        getPhotos();
     } else if (isSearchTypeVideos) {
-        getContentFromUserInput('videos', initialPage, getUserInput())
-            .then(response =>
-                response.videos.forEach(video => {
-                    generateVideoCard(video);
-                })
-            )
-            .catch(error => {
-                showAlert('Missing input or input not valid.');
-            });
+        getVideos();
     }
 };
+
+// BOTTOM BUTTONS
+const getUserContent = () =>
+    dropdownMenuButton.innerText === 'Photos' ? getPhotos() : getVideos();
+
+const isIinitial = () => (isSearched ? getRandomPhotos() : getUserContent());
+
+const prevPage = () => {
+    contentContainer.innerHTML = '';
+
+    if (initialPage > 1) {
+        initialPage--;
+        pageIndexNumber--;
+        pageIndex.innerText = pageIndexNumber;
+    }
+
+    isIinitial();
+};
+
+const nextPage = () => {
+    contentContainer.innerHTML = '';
+
+    initialPage++;
+    pageIndexNumber++;
+    pageIndex.innerText = pageIndexNumber;
+
+    isIinitial();
+};
+
+prevBtn.addEventListener('click', prevPage);
+nextBtn.addEventListener('click', nextPage);
 
 searchButton.addEventListener('click', displayResults);
 document.addEventListener(
