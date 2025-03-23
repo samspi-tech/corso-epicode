@@ -1,0 +1,269 @@
+body {
+    background-color: bisque;
+    font-family: 'Albert Sans', sans-serif;
+}
+
+ion-icon {
+    vertical-align: middle;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.ellipsis {
+    line-clamp: 4;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+/* HERO */
+.hero-title {
+    background-image: url('https://images.unsplash.com/photo-1535905748047-14b2415c77d5?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-clip: text;
+    font-size: 4.2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 7.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 10rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .hero-title {
+        font-size: 14rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .hero-title {
+        font-size: 20rem;
+    }
+}
+
+/* CART BUTTON */
+.badge {
+    top: 10px;
+    right: -10px;
+
+    z-index: 2;
+    height: 24px;
+    color: #000;
+    display: block;
+    padding: 0 3px;
+    font-size: 14px;
+    min-width: 24px;
+    font-weight: 500;
+    overflow: hidden;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: #fbf24a;
+    border: 1px solid #ffa94d;
+}
+
+/* CART MODAL */
+dialog {
+    border: none;
+    width: 100%;
+    height: 75%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.close-cart-modal {
+    top: 20px;
+    right: 20px;
+
+    cursor: pointer;
+    font-size: 25px;
+
+    transition: transform 200ms linear;
+}
+
+.close-cart-modal:hover {
+    transform: scale(1.5) rotate(180deg);
+}
+
+.cart-books-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-books-container .card {
+    max-width: 300px;
+    pointer-events: none;
+}
+
+.cart-books-container .card::after {
+    position: absolute;
+    bottom: -1px;
+    right: -5px;
+
+    font-size: 24px;
+    cursor: pointer;
+    padding: 2px 5px;
+    font-weight: 600;
+    content: 'Remove';
+    border-radius: 3px;
+    pointer-events: all;
+    background-color: #fbf24a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+
+    transition: all 150ms linear;
+}
+
+.cart-books-container .card:hover::after {
+    background-color: #fff;
+    content: 'Are you sure?';
+
+    animation: switch 250ms ease-in-out forwards;
+}
+
+@keyframes switch {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* BOOK ADDED TO CART */
+.cart-book-border {
+    border-radius: 15px;
+    border: 10px solid #ffa94d;
+}
+
+/* SEARCHBAR */
+.input-group ion-icon {
+    font-size: 20px;
+}
+
+/* MAIN CONTENT */
+.reload-section ion-icon {
+    font-size: 40px;
+    cursor: pointer;
+
+    transition: transform 100ms linear;
+}
+
+.reload-section ion-icon:hover {
+    animation: spin 1s infinite linear forwards;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+    35% {
+        transform: rotate(180deg) scale(1.15);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.reload-section span {
+    top: -35px;
+    left: -35px;
+
+    opacity: 0;
+    width: 110px;
+    height: 30px;
+    font-size: 16px;
+    background: #fff;
+    text-align: center;
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 80%,
+        55% 80%,
+        50% 100%,
+        45% 80%,
+        0 80%
+    );
+
+    transition: opacity 150ms linear;
+}
+
+.reload-section:hover span {
+    opacity: 1;
+}
+
+.section-title {
+    font-weight: 900;
+    font-size: 2.369rem;
+    border-left: 5px solid #ffa94d;
+}
+
+/* CARD */
+.card {
+    position: relative;
+}
+
+.card button ion-icon {
+    font-size: 1.777rem;
+}
+
+.card-body {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    opacity: 0;
+    cursor: pointer;
+    transition: all 150ms linear;
+}
+
+.card-body:hover {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-text,
+.card-title {
+    color: #fff;
+    font-weight: 800;
+}
+
+.card-title {
+    font-size: 3.157rem;
+}
+
+.card-text {
+    font-size: 2.369rem;
+}
