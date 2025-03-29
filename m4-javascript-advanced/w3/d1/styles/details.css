@@ -1,0 +1,96 @@
+body {
+    background-color: bisque;
+    font-family: 'Albert Sans', sans-serif;
+}
+
+.ellipsis {
+    line-clamp: 5;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.book-title {
+    font-weight: 900;
+}
+
+.book-category {
+    font-weight: 600;
+}
+
+.book-text {
+    font-size: 18px;
+}
+
+.book-price {
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 50px;
+    align-self: flex-start;
+    background-color: #d5d5d5;
+}
+
+@media (min-width: 768px) {
+    .book-title {
+        font-size: 22px;
+    }
+
+    .book-category {
+        font-size: 20px;
+    }
+
+    .book-price {
+        font-size: 16px;
+    }
+
+    .book-text {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 992px) {
+    .book-title {
+        font-size: 28px;
+    }
+
+    .book-category {
+        font-size: 22px;
+    }
+
+    .book-price {
+        font-size: 18px;
+    }
+
+    .book-text {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .card {
+        width: 80%;
+    }
+
+    .book-title {
+        font-size: 38px;
+    }
+
+    .book-category {
+        font-size: 25px;
+    }
+
+    .book-price {
+        font-size: 20px;
+    }
+
+    .book-text {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 2400px) {
+    .card {
+        width: 45%;
+    }
+}
