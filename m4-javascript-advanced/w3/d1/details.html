@@ -13,7 +13,20 @@
     <title>Book Details</title>
 </head>
 <body>
-    <main class="d-flex justify-content-center">
+    <main class="d-flex flex-column justify-content-center align-items-center pt-5">
+        <section class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="spinner" class="text-center d-none">
+                        <div class="spinner-border text-danger" role="status">
+                        </div>
+                    </div>
+
+                    <div id="alertContainer" class="alert alert-danger text-center d-none" role="alert"></div>
+                </div>
+            </div>
+        </section>
+
         <section class="card border-0 shadow m-5">
             <div id="bookContainer" class="row g-0"></div>
         </section>

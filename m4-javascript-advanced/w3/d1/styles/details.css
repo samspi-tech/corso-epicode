@@ -11,6 +11,17 @@ body {
     -webkit-box-orient: vertical;
 }
 
+.error-message {
+    color: #222;
+    text-decoration: none;
+    transition: all 50ms linear;
+}
+
+.error-message:hover {
+    color: #5d5d5d;
+    text-decoration: underline;
+}
+
 .book-title {
     font-weight: 900;
 }
