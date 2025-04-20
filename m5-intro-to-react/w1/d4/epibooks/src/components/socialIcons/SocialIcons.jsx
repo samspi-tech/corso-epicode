@@ -1,5 +1,5 @@
-import { icons } from './dataSource.js';
 import './socialIcons.css';
+import { icons } from './dataSource.js';
 
 const SocialIcons = () => {
     return (

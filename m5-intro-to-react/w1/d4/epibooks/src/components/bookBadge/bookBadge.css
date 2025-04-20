@@ -1,7 +1,14 @@
 .badge-container {
     position: absolute;
-    top: 5px;
     right: 0;
+    top: 5px;
+
+    cursor: pointer;
+}
+
+.plus-badge:hover,
+.bookmark-badge:hover {
+    background: var(--hover) !important;
 }
 
 .badge-container .bookmark-badge,

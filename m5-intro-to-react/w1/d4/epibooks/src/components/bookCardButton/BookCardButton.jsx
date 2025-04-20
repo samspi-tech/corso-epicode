@@ -1,6 +1,6 @@
-import BookModal from '../bookModal/BookModal.jsx';
-import { useState } from 'react';
 import './bookCardButton.css';
+import { useState } from 'react';
+import BookModal from '../bookModal/BookModal.jsx';
 
 const BookCardButton = ({ title, image, category, price }) => {
     const [modalShow, setModalShow] = useState(false);

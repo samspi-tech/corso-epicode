@@ -1,5 +1,5 @@
-import { Container, Row, Col, Alert } from 'react-bootstrap';
 import './welcome.css';
+import { Alert, Col, Container, Row } from 'react-bootstrap';
 
 const Welcome = () => {
     return (

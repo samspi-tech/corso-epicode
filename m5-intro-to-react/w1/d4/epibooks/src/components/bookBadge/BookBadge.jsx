@@ -1,7 +1,7 @@
-import { BookmarkCheck, Plus } from 'lucide-react';
-import { Badge } from 'react-bootstrap';
 import './bookBadge.css';
 import { useState } from 'react';
+import PlusBadge from "./partials/PlusBadge.jsx";
+import BookmarkBadge from "./partials/BookmarkBadge.jsx";
 
 const BookBadge = () => {
     const [bookmarkChecked, setBookmarkChecked] = useState(false);
@@ -9,22 +9,10 @@ const BookBadge = () => {
         setBookmarkChecked(!bookmarkChecked);
     };
 
-    const bookmarkBadge = (
-        <Badge className="bookmark-badge">
-            <BookmarkCheck size={35} />
-        </Badge>
-    );
-
-    const plusBadge = (
-        <Badge className="plus-badge">
-            <Plus size={35} />
-        </Badge>
-    );
-
     return (
         <>
             <h1 onClick={handleBookMark} className="badge-container">
-                {bookmarkChecked ? bookmarkBadge : plusBadge}
+                {bookmarkChecked ? <BookmarkBadge/> : <PlusBadge/>}
             </h1>
         </>
     );

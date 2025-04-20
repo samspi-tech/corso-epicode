@@ -1,8 +1,8 @@
-import { Row, Col } from 'react-bootstrap';
-import SocialIcons from '../socialIcons/SocialIcons.jsx';
-import FooterLinks from './partials/FooterLinks.jsx';
-import BrandLogo from '../brandLogo/BrandLogo.jsx';
 import './myFooter.css';
+import { Col, Row } from 'react-bootstrap';
+import BrandLogo from '../brandLogo/BrandLogo.jsx';
+import FooterLinks from './partials/FooterLinks.jsx';
+import SocialIcons from '../socialIcons/SocialIcons.jsx';
 
 const MyFooter = () => {
     return (

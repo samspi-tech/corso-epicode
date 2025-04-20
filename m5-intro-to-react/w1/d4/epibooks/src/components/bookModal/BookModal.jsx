@@ -1,5 +1,5 @@
-import { Modal, Button, Card } from 'react-bootstrap';
 import './bookModal.css';
+import { Button, Card, Modal } from 'react-bootstrap';
 
 const BookModal = ({ show, onHide, title, image, category, price }) => {
     return (

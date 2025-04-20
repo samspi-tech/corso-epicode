@@ -1,6 +1,6 @@
-import BookCardButton from '../bookCardButton/BookCardButton.jsx';
-import { Card } from 'react-bootstrap';
 import './bookCardBody.css';
+import { Card } from 'react-bootstrap';
+import BookCardButton from '../bookCardButton/BookCardButton.jsx';
 
 const BookCardBody = ({ title, category, price, image }) => {
     return (

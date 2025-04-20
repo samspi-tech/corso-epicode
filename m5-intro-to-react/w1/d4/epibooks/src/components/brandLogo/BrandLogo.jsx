@@ -1,5 +1,5 @@
-import { Navbar } from 'react-bootstrap';
 import './brandLogo.css';
+import { Navbar } from 'react-bootstrap';
 
 const BrandLogo = () => {
     return (

@@ -1,8 +1,7 @@
-import BookCardImage from '../bookCardImage/BookCardImage.jsx';
-import BookCardBody from '../bookCardBody/BookCardBody.jsx';
-import BookBadge from '../bookBadge/BookBadge.jsx';
 import { Card } from 'react-bootstrap';
-import { useState } from 'react';
+import BookBadge from '../bookBadge/BookBadge.jsx';
+import BookCardBody from '../bookCardBody/BookCardBody.jsx';
+import BookCardImage from '../bookCardImage/BookCardImage.jsx';
 
 const BookCard = ({ image, title, category, price }) => {
     return (

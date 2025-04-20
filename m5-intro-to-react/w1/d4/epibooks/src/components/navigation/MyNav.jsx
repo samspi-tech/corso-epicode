@@ -1,7 +1,7 @@
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import './myNav.css';
 import NavLinks from './partials/NavLinks.jsx';
 import BrandLogo from '../brandLogo/BrandLogo.jsx';
-import './myNav.css';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 const MyNav = () => {
     return (

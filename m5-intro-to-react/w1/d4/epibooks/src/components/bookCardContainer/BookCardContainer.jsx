@@ -1,7 +1,7 @@
-import Fantasy from '../../assets/books/fantasy.json';
-import BookCard from '../bookCard/BookCard.jsx';
-import { Col } from 'react-bootstrap';
 import './bookCardContainer.css';
+import { Col } from 'react-bootstrap';
+import BookCard from '../bookCard/BookCard.jsx';
+import Fantasy from '../../assets/books/fantasy.json';
 
 const BookCardContainer = () => {
     return (
@@ -12,6 +12,7 @@ const BookCardContainer = () => {
                     sm={12}
                     md={6}
                     lg={4}
+                    xxl={3}
                     className="book-card-container"
                 >
                     <BookCard

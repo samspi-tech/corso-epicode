@@ -1,5 +1,5 @@
-import { Card } from 'react-bootstrap';
 import './bookCardImage.css';
+import { Card } from 'react-bootstrap';
 
 const BookCardImage = ({ image, title }) => {
     return (
