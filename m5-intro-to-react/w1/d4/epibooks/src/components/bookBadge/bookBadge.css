@@ -1,0 +1,52 @@
+.badge-container {
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+.badge-container .bookmark-badge,
+.badge-container .plus-badge {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.badge-container .bookmark-badge {
+    padding: 15px 10px;
+    border-radius: 5px 0 0 5px;
+
+    animation: mutateToBookmark 250ms forwards;
+}
+
+.badge-container .plus-badge {
+    padding: 3px;
+    margin-right: 10px;
+    border-radius: 50%;
+
+    animation: mutateToPlus 150ms ease-in-out;
+}
+
+
+@keyframes mutateToBookmark {
+    from {
+        padding: 3px;
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+    to {
+        padding: 15px 10px;
+        margin-right: 0;
+        border-radius: 5px 0 0 5px;
+    }
+}
+
+@keyframes mutateToPlus {
+    from {
+        padding: 15px 10px;
+        margin-right: 0;
+        border-radius: 5px 0 0 5px;
+    }
+    to {
+        padding: 3px;
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+}
