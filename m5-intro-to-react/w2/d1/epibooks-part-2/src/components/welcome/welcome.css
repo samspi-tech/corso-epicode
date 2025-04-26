@@ -1,0 +1,37 @@
+.hero {
+    background-image: linear-gradient(90deg, rgba(203, 35, 118, 0.15), rgba(255, 0, 214, 0.2)), url("https://images.unsplash.com/photo-1468779036391-52341f60b55d?q=80&w=1968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-title {
+    font-weight: 800;
+    margin-bottom: 0;
+    width: min-content;
+    text-transform: uppercase;
+
+    background: linear-gradient(90deg, #CB2376, #FF00D6);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-alert {
+    color: var(--text-primary);
+    border-color: var(--accent);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(90deg, rgba(16, 16, 35, 0.95), rgba(25, 33, 85, 0.95) 50%);
+}
+
+
+.hero-alert blockquote p::before {
+    content: '\201C';
+}
+
+.hero-alert blockquote p::after {
+    content: '\201D';
+}
+
+.hero-alert blockquote ~ p {
+    font-weight: 700;
+}
+
