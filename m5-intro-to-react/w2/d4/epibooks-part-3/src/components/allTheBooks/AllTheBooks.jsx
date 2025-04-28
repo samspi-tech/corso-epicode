@@ -1,9 +1,9 @@
 import './allTheBooks.css';
 import { useRef, useState } from 'react';
 import { Row } from 'react-bootstrap';
-import { useFetch } from '../hook/useFetch.jsx';
+import { useFetch } from '../../hooks/useFetch.jsx';
 import SearchBar from '../searchBar/SearchBar.jsx';
-import SingleBook from '../singleBook/SingleBook.jsx';
+import SingleBook from './partials/singleBook/SingleBook.jsx';
 import ErrorAlert from '../errorAlert/ErrorAlert.jsx';
 import LoadingSpinner from '../loadingSpinner/LoadingSpinner.jsx';
 

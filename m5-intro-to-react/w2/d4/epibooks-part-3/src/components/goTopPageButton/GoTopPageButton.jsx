@@ -1,6 +1,6 @@
 import './goTopPageButton.css';
 import { ChevronUp } from 'lucide-react';
-import { useWindowScrollYPosition } from '../hook/useWindowScrollYPosition.jsx';
+import { useWindowScrollYPosition } from '../../hooks/useWindowScrollYPosition.jsx';
 
 const GoTopPageButton = () => {
     const { scrollYPosition } = useWindowScrollYPosition();

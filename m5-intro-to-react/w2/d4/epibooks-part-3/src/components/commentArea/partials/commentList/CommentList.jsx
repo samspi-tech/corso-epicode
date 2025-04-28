@@ -1,7 +1,7 @@
 import './commentList.css';
 import SingleComment from './partials/SingleComment.jsx';
 
-const CommentList = ({ comments }) => {
+const CommentList = ({ comments, getComments }) => {
     const deleteComment = async id => {
         try {
             const response = await fetch(
@@ -17,7 +17,9 @@ const CommentList = ({ comments }) => {
             );
             return await response.json();
         } catch (error) {
-            console.log(error);
+            console.log(error.message);
+        } finally {
+            getComments();
         }
     };
 
@@ -31,8 +33,9 @@ const CommentList = ({ comments }) => {
                     return (
                         <SingleComment
                             key={id}
-                            comments={comments}
+                            comments={comment}
                             onDelete={deleteComment}
+                            getComments={getComments}
                         />
                     );
                 })}

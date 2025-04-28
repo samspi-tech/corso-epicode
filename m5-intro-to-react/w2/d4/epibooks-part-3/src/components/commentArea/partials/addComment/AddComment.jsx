@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Comment from './partials/Comment.jsx';
 import { Button, Form } from 'react-bootstrap';
 
-const AddComment = ({ bookId }) => {
+const AddComment = ({ bookId, getComments }) => {
     const [review, setReview] = useState({
         comment: '',
         rate: '',
@@ -40,6 +40,8 @@ const AddComment = ({ bookId }) => {
             });
         } catch (error) {
             console.log(error);
+        } finally {
+            getComments();
         }
     };
 

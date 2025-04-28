@@ -17,6 +17,7 @@
 
 .comment {
     width: 100%;
+    font-size: 18px;
     font-style: italic;
     text-transform: capitalize;
 }
@@ -26,10 +27,8 @@
 }
 
 .rating-icon {
-    fill: var(--text-secondary);
+    fill: var(--text-primary);
 }
 
-.delete-btn {
-    cursor: pointer;
-}
+
 

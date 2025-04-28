@@ -1,13 +1,11 @@
 import './commentArea.css';
 import { useEffect, useState } from 'react';
 import { Button, Card, Modal } from 'react-bootstrap';
-import AddComment from '../addComment/AddComment.jsx';
-import CommentList from '../commentList/CommentList.jsx';
-import brandLogo from '../brandLogo/BrandLogo.jsx';
+import AddComment from './partials/addComment/AddComment.jsx';
+import CommentList from './partials/commentList/CommentList.jsx';
 
 const CommentArea = ({ show, onHide, book }) => {
     const { asin, img, title, category } = book;
-
     const [comments, setComments] = useState([]);
 
     const getComments = async () => {
@@ -21,8 +19,8 @@ const CommentArea = ({ show, onHide, book }) => {
                     },
                 },
             );
-            const results = await response.json();
-            setComments(results);
+            const comments = await response.json();
+            setComments(comments);
         } catch (error) {
             console.log(error);
         }
@@ -49,9 +47,12 @@ const CommentArea = ({ show, onHide, book }) => {
                     <Card.Img className="book-modal-img" src={img} />
                     <Card.Body className="d-flex flex-column">
                         {/* ADD COMMENT */}
-                        <AddComment bookId={asin} />
+                        <AddComment bookId={asin} getComments={getComments} />
                         {/* COMMENT LIST */}
-                        <CommentList comments={comments} />
+                        <CommentList
+                            comments={comments}
+                            getComments={getComments}
+                        />
                     </Card.Body>
                 </Modal.Body>
                 <Modal.Footer>
