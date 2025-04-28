@@ -1,0 +1,12 @@
+.footer-links a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-primary);
+
+    transition: all 150ms linear;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+    transform: translateX(3px);
+}

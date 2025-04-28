@@ -1,0 +1,35 @@
+.comments-list {
+    margin: 0;
+    height: 210px;
+    padding: 10px;
+    list-style: none;
+    overflow-y: auto;
+    border-radius: 5px;
+    color: var(--text-secondary);
+    background-color: var(--text-primary);
+}
+
+.comment-container {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--accent-two);
+}
+
+.comment {
+    width: 100%;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+.rate {
+    font-weight: 700;
+}
+
+.rating-icon {
+    fill: var(--text-secondary);
+}
+
+.delete-btn {
+    cursor: pointer;
+}
+

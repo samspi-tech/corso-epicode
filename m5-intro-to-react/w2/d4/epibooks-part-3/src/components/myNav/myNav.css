@@ -1,0 +1,48 @@
+nav {
+
+    background: var(--bg-color);
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.nav-link {
+    color: var(--text-primary);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+.nav-link {
+    margin: 0 10px;
+    font-weight: 700;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler:focus .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(149, 4, 132, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+

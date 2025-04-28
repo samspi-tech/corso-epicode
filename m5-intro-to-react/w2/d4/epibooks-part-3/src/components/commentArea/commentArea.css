@@ -1,0 +1,19 @@
+.comment-area {
+    border-radius: 5px;
+    color: var(--text-primary);
+    background: var(--bg-color);
+    box-shadow: 0 1px 5px 1px rgba(255, 255, 255, 0.8);
+}
+
+.book-modal-img {
+    width: 250px;
+    align-self: center;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+
+.category-text {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
