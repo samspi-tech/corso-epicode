@@ -50,6 +50,7 @@ const CommentArea = ({ show, onHide, book }) => {
                         <AddComment bookId={asin} getComments={getComments} />
                         {/* COMMENT LIST */}
                         <CommentList
+                            book={book}
                             comments={comments}
                             getComments={getComments}
                         />

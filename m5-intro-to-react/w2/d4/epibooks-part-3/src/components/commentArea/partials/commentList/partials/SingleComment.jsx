@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Star } from 'lucide-react';
-import { Badge, ListGroup, Form } from 'react-bootstrap';
-import SaveButton from './partials/SaveButton.jsx';
-import EditButton from './partials/EditButton.jsx';
+import { Badge, Button, Form, ListGroup } from 'react-bootstrap';
 
-const SingleComment = ({ comments, onDelete, getComments }) => {
+const SingleComment = ({ comments, onDelete, getComments, book }) => {
+    const { asin: bookId } = book;
     const { _id: id, comment, rate } = comments;
     const [isEdit, setIsEdit] = useState(false);
     const [editedComment, setEditedComment] = useState({
@@ -15,11 +14,13 @@ const SingleComment = ({ comments, onDelete, getComments }) => {
 
     const handleCommentEdit = e => {
         setEditedComment({
-            rate: rate,
-            elementId: id,
+            rate: String(rate),
+            elementId: bookId,
             comment: e.target.value,
         });
     };
+
+    console.log(editedComment);
 
     const handleDelete = () => {
         onDelete(id);
@@ -45,8 +46,7 @@ const SingleComment = ({ comments, onDelete, getComments }) => {
                     },
                 },
             );
-            const editedComment = await response.json();
-            setEditedComment(editedComment);
+            return await response.json();
         } catch (error) {
             console.log(error);
         } finally {
@@ -63,12 +63,17 @@ const SingleComment = ({ comments, onDelete, getComments }) => {
                 <div className="me-5">
                     <small className="fw-bold d-block">Comment</small>
                     {isEdit ? (
-                        <input
-                            name="comment"
-                            placeholder={comment}
-                            value={editedComment.comment}
-                            onChange={handleCommentEdit}
-                        />
+                        <Form onSubmit={editComment}>
+                            <input
+                                name="comment"
+                                placeholder={comment}
+                                value={editedComment.comment}
+                                onChange={handleCommentEdit}
+                            />
+                            <Button type="submit" className="save-button">
+                                Save
+                            </Button>
+                        </Form>
                     ) : (
                         <span className="comment">{comment}</span>
                     )}
@@ -83,14 +88,9 @@ const SingleComment = ({ comments, onDelete, getComments }) => {
                     <Badge onClick={handleDelete} type="button" bg="danger">
                         Delete
                     </Badge>
-                    {isEdit ? (
-                        <SaveButton
-                            onSave={editComment}
-                            handleEditStatus={handleEditStatus}
-                        />
-                    ) : (
-                        <EditButton onEdit={handleEditStatus} />
-                    )}
+                    <Badge type="button" bg="dark" onClick={handleEditStatus}>
+                        {isEdit ? 'Back' : 'Edit'}
+                    </Badge>
                 </div>
             </ListGroup.Item>
         </ListGroup>
