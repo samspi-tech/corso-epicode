@@ -1,0 +1,8 @@
+.comment-container textarea {
+    resize: none;
+}
+
+.rating-container {
+    font-size: 14px;
+    width: max-content;
+}
