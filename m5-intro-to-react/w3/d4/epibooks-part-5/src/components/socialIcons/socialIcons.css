@@ -1,0 +1,16 @@
+footer p, .social-icons {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.social-icons {
+    display: inline-block;
+    transition: all 150ms linear;
+}
+
+.social-icons:hover {
+    color: var(--accent);
+    transform: translateY(2px);
+}
+
+
