@@ -1,0 +1,36 @@
+.not-found-page-container {
+    background: var(--bg-color);
+}
+
+
+.not-found-img-container img {
+    box-shadow: 0 3px 15px 1px rgba(0, 0, 0, 0.6);
+    filter: brightness(0.85);
+}
+
+.not-found-img-container h1 {
+    transform: translateY(50%);
+    position: absolute;
+    bottom: 50%;
+    right: 15px;
+
+    font-weight: 900;
+    text-align: right;
+    width: min-content;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.take-me-back-btn {
+    position: absolute;
+    left: 20px;
+    top: 65px;
+
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+    transition: transform 200ms ease-in-out;
+}
+
+.take-me-back-btn:hover {
+    transform: scale(1.1);
+}

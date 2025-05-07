@@ -1,0 +1,75 @@
+.comment-area-container {
+    position: sticky;
+    top: 50px;
+
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-primary) transparent;
+    background: var(--bg-hero);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.form-label, .comment-area-info {
+    color: var(--text-primary);
+}
+
+.comment-area-info {
+    font-weight: 700;
+}
+
+.comments-container {
+    overflow-y: auto;
+    max-height: 590px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.edit-btn, .save-btn {
+    text-decoration: none;
+}
+
+.edit-btn:hover, .save-btn:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    position: absolute;
+    top: -5px;
+    right: 0;
+}
+
+.delete-btn:hover {
+    color: #FF0000;
+}
+
+.save-btn {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+}
+
+@media (min-width: 768px) {
+    .save-btn {
+        position: absolute;
+        right: -100px;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .save-btn {
+        position: absolute;
+        right: -140px;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 1440px) {
+    .save-btn {
+        position: absolute;
+        right: -110px;
+        bottom: 0;
+    }
+}

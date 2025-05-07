@@ -1,0 +1,33 @@
+.comments-loading {
+    width: 100%;
+    height: 75px;
+    margin: 5px auto;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #ee3691, #500969);
+    background-size: 1000% 100%;
+}
+
+.comments-loading.one {
+    animation: commentsLoading 2s linear infinite alternate;
+}
+
+.comments-loading.two {
+    animation: commentsLoading 2s linear 1s infinite alternate;
+}
+
+.comments-loading.three {
+    animation: commentsLoading 2s linear 1.5s infinite alternate;
+}
+
+.comments-loading.four {
+    animation: commentsLoading 2s linear 2s infinite alternate;
+}
+
+@keyframes commentsLoading {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
