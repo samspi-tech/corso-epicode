@@ -1,0 +1,14 @@
+.book-card {
+    cursor: pointer;
+
+    transition: all 200ms linear;
+}
+
+@media (min-width: 1024px) {
+    .selected-card {
+        border-radius: 12px;
+        transform: scale(1.05);
+        border: 8px solid red;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+}

@@ -1,0 +1,18 @@
+.book-title,
+.book-price,
+.book-btn {
+    display: none;
+    font-weight: 700;
+}
+
+
+.book-price, .book-category {
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--text-secondary);
+}
+
+.book-category {
+    text-transform: capitalize;
+}
+

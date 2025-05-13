@@ -1,0 +1,45 @@
+.details-page {
+    color: var(--text-primary);
+    background: var(--bg-color);
+}
+
+.details-img-container img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 250px;
+    border-radius: 5px;
+    object-position: 0 10%;
+
+    animation: moveAxis linear 40s infinite;
+}
+
+@keyframes moveAxis {
+    0% {
+        opacity: 0;
+        object-position: 0 10%;
+    }
+    5% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    45% {
+        opacity: 0;
+        object-position: 0 50%;
+    }
+    46% {
+        opacity: 0;
+        object-position: 0 90%;
+    }
+    50% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        object-position: 0 50%;
+    }
+}

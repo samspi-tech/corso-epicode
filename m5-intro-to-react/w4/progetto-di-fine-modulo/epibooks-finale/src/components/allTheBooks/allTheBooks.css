@@ -1,0 +1,52 @@
+.book-card-container:hover .book-img {
+    height: 460px;
+    filter: brightness(0.4);
+
+    transition: all 250ms linear;
+}
+
+.book-card-container:hover .book-title,
+.book-card-container:hover .book-price,
+.book-card-container:hover .book-btn,
+.book-card-container:hover .book-category {
+    display: block;
+    color: #ffffff;
+
+    display: -webkit-box;
+    overflow: hidden;
+    line-clamp: 5;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.book-card-container:hover .book-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-card-container:hover .see-more {
+    display: none;
+    font-weight: 700;
+}
+
+.book-card-container:hover .book-card-body {
+    animation: slide 600ms forwards;
+}
+
+@keyframes slide {
+    0% {
+        position: absolute;
+        bottom: -100%;
+    }
+    50% {
+        position: absolute;
+        top: -100%;
+    }
+    100% {
+        position: absolute;
+        top: 10px;
+
+        width: 100%;
+    }
+}

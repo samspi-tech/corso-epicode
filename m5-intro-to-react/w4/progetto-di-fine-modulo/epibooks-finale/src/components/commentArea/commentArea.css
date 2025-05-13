@@ -1,0 +1,80 @@
+.comment-area-container {
+    position: sticky;
+    top: 50px;
+
+    background: var(--bg-hero);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.single-comment {
+    background-color: #fff;
+
+    transition: all 150ms ease-in-out;
+}
+
+.single-comment:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.form-label,
+.comment-area-info {
+    color: var(--text-primary);
+}
+
+.comment-area-info {
+    font-weight: 700;
+}
+
+.comments-container {
+    overflow-y: auto;
+    max-height: 300px;
+    position: relative;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-primary) transparent;
+}
+
+.edit-btn {
+    color: #192155;
+}
+
+.edit-btn {
+    text-decoration: none;
+}
+
+.edit-btn:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    position: absolute;
+}
+
+.delete-btn {
+    right: 0;
+    top: -5px;
+}
+
+.delete-btn svg {
+    transition: all 100ms linear;
+}
+
+.delete-btn svg:hover {
+    transform: scale(1.2);
+}
+
+.delete-btn,
+.edit-btn {
+    opacity: 0;
+
+    transition: all 100ms linear;
+}
+
+.single-comment:hover .delete-btn,
+.single-comment:hover .edit-btn {
+    opacity: 1;
+}
+
+.rating-icon {
+    fill: #fff;
+}

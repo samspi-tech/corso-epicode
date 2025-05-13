@@ -1,0 +1,18 @@
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: var(--text-primary);
+}
+
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
