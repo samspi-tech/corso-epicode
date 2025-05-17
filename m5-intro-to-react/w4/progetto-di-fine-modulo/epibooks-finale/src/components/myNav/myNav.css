@@ -80,3 +80,7 @@ nav {
     text-wrap: nowrap;
     color: var(--text-primary);
 }
+
+.reset-search-btn {
+    color: var(--text-primary);
+}

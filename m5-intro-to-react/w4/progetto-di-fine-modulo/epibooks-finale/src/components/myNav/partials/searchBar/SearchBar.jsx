@@ -7,7 +7,7 @@ import { SearchBookContext } from '../../../../contexts/SearchBookContext.jsx';
 
 const SearchBar = () => {
     const { books, setBooks, getAllBooks } = useContext(BookContext);
-    const { searchQuery, handleInputChange, handleInputFocus } =
+    const { searchQuery, handleInputChange, handleClearInput } =
         useContext(SearchBookContext);
 
     const handleSubmit = e => {
@@ -35,7 +35,7 @@ const SearchBar = () => {
                     type="search"
                     value={searchQuery}
                     className="searchbar"
-                    onFocus={handleInputFocus}
+                    onFocus={handleClearInput}
                     onChange={handleInputChange}
                     placeholder="Search book by title"
                 />

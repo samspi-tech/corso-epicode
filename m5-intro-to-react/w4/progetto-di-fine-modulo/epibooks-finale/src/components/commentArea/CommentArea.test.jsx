@@ -6,7 +6,7 @@ import CommentArea from './CommentArea';
 import { describe, expect } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import PageContent from '../pageContent/PageContent.jsx';
-import { BookContext } from '../../contexts/BookContext.jsx';
+import { BookContext, BookProvider } from '../../contexts/BookContext.jsx';
 import { ThemeProvider } from '../../contexts/ThemeContext.jsx';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { CommentsContext } from '../../contexts/CommentsContext.jsx';
@@ -15,9 +15,13 @@ import { SearchBookProvider } from '../../contexts/SearchBookContext.jsx';
 describe('Test for CommentArea', () => {
     it('should test if CommentArea is rendered correctly', () => {
         render(
-            <SelectedProvider>
-                <CommentArea />
-            </SelectedProvider>,
+            <MemoryRouter>
+                <SelectedProvider>
+                    <BookProvider>
+                        <CommentArea />
+                    </BookProvider>
+                </SelectedProvider>
+            </MemoryRouter>,
         );
     });
 

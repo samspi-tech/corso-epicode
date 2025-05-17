@@ -1,38 +1,20 @@
 import './pageBookDetails.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { useFetch } from '../../hooks/useFetch.jsx';
 import { Col, Container, Row } from 'react-bootstrap';
 import ErrorAlert from '../errorAlert/ErrorAlert.jsx';
-import { useContext, useEffect, useState } from 'react';
 import CommentArea from '../commentArea/CommentArea.jsx';
 import { ThemeContext } from '../../contexts/ThemeContext.jsx';
 import BookLoadingSpinner from '../spinners/bookLoadingSpinner/BookLoadingSpinner.jsx';
 
 const PageBookDetails = () => {
-    const { isDarkMode } = useContext(ThemeContext);
-
     const { asin } = useParams();
-    const [error, setError] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const [bookDetails, setBookDetails] = useState(null);
-
-    const getBookDetails = async () => {
-        setIsLoading(true);
-
-        try {
-            const response = await fetch(
-                `https://epibooks.onrender.com/fantasy/${asin}`
-            );
-            const singleBook = await response.json();
-            setBookDetails(singleBook);
-        } catch (error) {
-            setError(error);
-        } finally {
-            setIsLoading(false);
-        }
-    };
+    const { isDarkMode } = useContext(ThemeContext);
+    const { getData, isLoading, error, data: bookDetails } = useFetch(asin);
 
     useEffect(() => {
-        getBookDetails();
+        getData();
     }, [asin]);
 
     return (
@@ -50,20 +32,23 @@ const PageBookDetails = () => {
                     )}
                     {bookDetails &&
                         bookDetails.map(book => {
-                            const { asin, title, img } = book;
+                            const { asin, title, img, category } = book;
 
                             return (
                                 <Col
                                     xs={12}
                                     lg={7}
                                     key={asin}
-                                    className="d-flex flex-column gap-3"
+                                    className="d-flex flex-column gap-1"
                                 >
                                     <h1 className="fw-bold">{title}</h1>
+                                    <small className="text-capitalize fw-medium">
+                                        {category}
+                                    </small>
                                     <div className="details-img-container">
                                         <img alt={title} src={`${img}`} />
                                     </div>
-                                    <p>
+                                    <p className="mb-0 mt-2">
                                         "Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna

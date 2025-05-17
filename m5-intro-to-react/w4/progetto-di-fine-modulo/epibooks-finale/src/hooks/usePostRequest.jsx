@@ -28,7 +28,7 @@ export const usePostRequest = (bookId, getComments) => {
         e.preventDefault();
 
         try {
-            const response = fetch(
+            const response = await fetch(
                 'https://striveschool-api.herokuapp.com/api/comments',
                 {
                     method: 'POST',

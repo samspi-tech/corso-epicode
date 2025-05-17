@@ -18,7 +18,7 @@ export const CommentsProvider = ({ children }) => {
                         Authorization:
                             'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RmYzUzNmQyZWM1YzAwMTUzOTM4MGUiLCJpYXQiOjE3NDU3NTg0NDAsImV4cCI6MTc0Njk2ODA0MH0.z0Zh_N9h6X3zYClRoooiePAy2lthEZ1jEPAH6q3Dakg',
                     },
-                }
+                },
             );
             const comments = await response.json();
             setComments(comments);
@@ -33,6 +33,7 @@ export const CommentsProvider = ({ children }) => {
         <CommentsContext.Provider
             value={{
                 error,
+                setError,
                 isLoading,
                 setIsLoading,
                 comments,

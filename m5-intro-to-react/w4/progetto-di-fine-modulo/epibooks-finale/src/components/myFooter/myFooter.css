@@ -3,11 +3,12 @@ footer {
 }
 
 .footer-links a {
+    font-weight: 600;
     display: inline-block;
     text-decoration: none;
     color: var(--text-primary);
 
-    transition: all 150ms linear;
+    transition: transform 150ms linear;
 }
 
 .footer-links a:hover {

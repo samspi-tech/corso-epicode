@@ -1,11 +1,13 @@
 import './commentArea.css';
 import { useContext } from 'react';
 import { Info } from 'lucide-react';
+import { BookContext } from '../../contexts/BookContext.jsx';
 import CommentsForm from './partials/commentsForm/CommentsForm.jsx';
 import CommentsList from './partials/commentsList/CommentsList.jsx';
 import { SelectedContext } from '../../contexts/SelectedContext.jsx';
 
 const CommentArea = ({ isTitleVisible }) => {
+    const { isLoading } = useContext(BookContext);
     const { selected } = useContext(SelectedContext);
 
     return (
@@ -18,7 +20,9 @@ const CommentArea = ({ isTitleVisible }) => {
                     <span>
                         <Info size={30} />
                     </span>
-                    Click on any book to see its comments or to add one.
+                    {isLoading
+                        ? 'Loading books...'
+                        : 'Click on any book to see its comments or to add one.'}
                 </h5>
             )}
             {selected && <CommentsForm book={selected} />}

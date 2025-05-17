@@ -1,7 +1,7 @@
 import HomePage from './HomePage.jsx';
 import { describe, expect } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
-import { BookContext } from '../contexts/BookContext.jsx';
+import { BookContext, BookProvider } from '../contexts/BookContext.jsx';
 import { ThemeProvider } from '../contexts/ThemeContext.jsx';
 import { SelectedProvider } from '../contexts/SelectedContext.jsx';
 import { fireEvent, render, screen } from '@testing-library/react';
@@ -138,7 +138,9 @@ describe('Tests for Homepage components', () => {
         render(
             <MemoryRouter>
                 <SelectedProvider>
-                    <CommentArea isTitleVisible={mockFn} />
+                    <BookProvider>
+                        <CommentArea isTitleVisible={mockFn} />
+                    </BookProvider>
                 </SelectedProvider>
             </MemoryRouter>,
         );

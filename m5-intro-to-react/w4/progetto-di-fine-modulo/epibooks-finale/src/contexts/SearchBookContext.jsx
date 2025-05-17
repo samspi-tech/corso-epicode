@@ -9,7 +9,7 @@ export const SearchBookProvider = ({ children }) => {
         setSearchQuery(e.target.value);
     };
 
-    const handleInputFocus = () => {
+    const handleClearInput = () => {
         setSearchQuery('');
     };
 
@@ -18,7 +18,7 @@ export const SearchBookProvider = ({ children }) => {
             value={{
                 searchQuery,
                 setSearchQuery,
-                handleInputFocus,
+                handleClearInput,
                 handleInputChange,
             }}
         >

@@ -1,18 +1,21 @@
 import './myNav.css';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { RefreshCcw } from 'lucide-react';
 import BrandLogo from '../brandLogo/BrandLogo.jsx';
 import SearchBar from './partials/searchBar/SearchBar.jsx';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { BookContext } from '../../contexts/BookContext.jsx';
 import { ThemeContext } from '../../contexts/ThemeContext.jsx';
 import ThemeToggleButton from './partials/ThemeToggleButton.jsx';
-import { BookContext } from '../../contexts/BookContext.jsx';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { SearchBookContext } from '../../contexts/SearchBookContext.jsx';
 
 const MyNav = () => {
     const { books } = useContext(BookContext);
     const { isDarkMode } = useContext(ThemeContext);
+    const { handleClearInput } = useContext(SearchBookContext);
 
-    const booksFilteredLength = books && books.length;
+    const booksFilteredLength = books === [] ? '0' : books && books.length;
     const isPlural = booksFilteredLength !== 1 ? 'results' : 'result';
 
     return (
@@ -26,11 +29,11 @@ const MyNav = () => {
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-5 me-auto">
+                    <Nav className="ms-lg-5 me-auto">
                         <Link to="/" className="nav-link">
                             Home
                         </Link>
-                        <Link to="/aboutWorkingInProgress" className="nav-link">
+                        <Link to="/aboutWorkInProgress" className="nav-link">
                             About
                         </Link>
                         <Link to="/browseWorkInProgress" className="nav-link">
@@ -38,8 +41,17 @@ const MyNav = () => {
                         </Link>
                     </Nav>
                     <div className="d-flex align-items-center gap-2">
-                        {booksFilteredLength && booksFilteredLength < 150 && (
-                            <small className="result-info mb-0">{`${booksFilteredLength} ${isPlural}`}</small>
+                        {booksFilteredLength < 150 && (
+                            <div className="d-flex align-items-center gap-2">
+                                <small className="result-info mb-0">{`${booksFilteredLength} ${isPlural}`}</small>
+                                <Button
+                                    variant="link"
+                                    onClick={handleClearInput}
+                                    className="reset-search-btn p-0"
+                                >
+                                    <RefreshCcw size={20} />
+                                </Button>
+                            </div>
                         )}
                         <SearchBar />
                         <ThemeToggleButton />

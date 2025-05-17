@@ -1,9 +1,9 @@
 import './myFooter.css';
-import { Col, Container, Row } from 'react-bootstrap';
+import { useContext } from 'react';
 import BrandLogo from '../brandLogo/BrandLogo.jsx';
 import FooterLinks from './partials/FooterLinks.jsx';
+import { Col, Container, Row } from 'react-bootstrap';
 import SocialIcons from '../socialIcons/SocialIcons.jsx';
-import { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext.jsx';
 
 const MyFooter = () => {
