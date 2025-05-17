@@ -6,14 +6,18 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 describe('Test for BookCard', () => {
     it('should test if the card border has been added after clicking on the card', () => {
-        const bookMockup = {
-            title: 'title',
+        const mockBook = {
+            price: 2,
+            asin: '456',
+            title: 'title 2',
+            category: 'cat 2',
+            img: 'https://img-2.com',
         };
 
         render(
             <MemoryRouter>
                 <SelectedProvider>
-                    <BookCard book={bookMockup} />
+                    <BookCard book={mockBook} />
                 </SelectedProvider>
             </MemoryRouter>,
         );
@@ -22,7 +26,6 @@ describe('Test for BookCard', () => {
         expect(bookCard).toHaveClass('false');
 
         fireEvent.click(bookCard);
-
         expect(bookCard).toHaveClass('selected-card');
     });
 });

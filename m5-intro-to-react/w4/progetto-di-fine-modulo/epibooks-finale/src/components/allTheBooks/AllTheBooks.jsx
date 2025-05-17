@@ -29,11 +29,7 @@ const AllTheBooks = () => {
                     const { asin } = book;
 
                     return (
-                        <SingleBook
-                            key={asin}
-                            book={book}
-                            data-testid="cardssss"
-                        />
+                        <SingleBook data-testid="card" key={asin} book={book} />
                     );
                 })}
         </Row>

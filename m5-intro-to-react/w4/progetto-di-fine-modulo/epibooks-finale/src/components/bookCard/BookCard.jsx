@@ -27,7 +27,7 @@ const BookCard = ({ book, bookmarked, handleBookmarkedBook }) => {
 
     return (
         <Card
-            data-testid={'bookCard'}
+            data-testid="bookCard"
             onClick={handleSelected}
             className={`position-relative overflow-hidden book-card ${
                 isActive && 'selected-card'

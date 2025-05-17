@@ -5,11 +5,11 @@ export const SearchBookContext = createContext();
 export const SearchBookProvider = ({ children }) => {
     const [searchQuery, setSearchQuery] = useState('');
 
-    const onInputChange = e => {
+    const handleInputChange = e => {
         setSearchQuery(e.target.value);
     };
 
-    const onInputFocus = () => {
+    const handleInputFocus = () => {
         setSearchQuery('');
     };
 
@@ -18,8 +18,8 @@ export const SearchBookProvider = ({ children }) => {
             value={{
                 searchQuery,
                 setSearchQuery,
-                onInputFocus,
-                onInputChange,
+                handleInputFocus,
+                handleInputChange,
             }}
         >
             {children}

@@ -2,7 +2,7 @@ import './myNav.css';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import BrandLogo from '../brandLogo/BrandLogo.jsx';
-import SearchBar from '../searchBar/SearchBar.jsx';
+import SearchBar from './partials/searchBar/SearchBar.jsx';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { ThemeContext } from '../../contexts/ThemeContext.jsx';
 import ThemeToggleButton from './partials/ThemeToggleButton.jsx';

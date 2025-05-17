@@ -1,22 +1,20 @@
 import { footerLinks } from '../dataSource.js';
 
 const FooterLinks = () => {
-    const nextFooterLinks = [...footerLinks];
-
     return (
         <ul className="list-unstyled d-flex flex-column gap-3">
-            {nextFooterLinks
-                .sort((firstLink, secondLink) => {
-                    firstLink = firstLink.text.length;
-                    secondLink = secondLink.text.length;
+            {footerLinks
+                .slice()
+                .sort((a, b) => a.text.localeCompare(b.text))
+                .map(link => {
+                    const { id, text } = link;
 
-                    return firstLink - secondLink;
-                })
-                .map(link => (
-                    <li className="footer-links" key={link.id}>
-                        <a href="#">{link.text}</a>
-                    </li>
-                ))}
+                    return (
+                        <li className="footer-links" key={id}>
+                            <a href="#">{text}</a>
+                        </li>
+                    );
+                })}
         </ul>
     );
 };

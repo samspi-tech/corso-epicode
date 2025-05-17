@@ -2,12 +2,12 @@ import './searchBar.css';
 import { Search } from 'lucide-react';
 import { useContext, useEffect } from 'react';
 import { Button, Form, InputGroup } from 'react-bootstrap';
-import { BookContext } from '../../contexts/BookContext.jsx';
-import { SearchBookContext } from '../../contexts/SearchBookContext.jsx';
+import { BookContext } from '../../../../contexts/BookContext.jsx';
+import { SearchBookContext } from '../../../../contexts/SearchBookContext.jsx';
 
 const SearchBar = () => {
     const { books, setBooks, getAllBooks } = useContext(BookContext);
-    const { searchQuery, onInputChange, onInputFocus } =
+    const { searchQuery, handleInputChange, handleInputFocus } =
         useContext(SearchBookContext);
 
     const handleSubmit = e => {
@@ -35,11 +35,15 @@ const SearchBar = () => {
                     type="search"
                     value={searchQuery}
                     className="searchbar"
-                    onFocus={onInputFocus}
-                    onChange={onInputChange}
+                    onFocus={handleInputFocus}
+                    onChange={handleInputChange}
                     placeholder="Search book by title"
                 />
-                <Button type="submit" className="searchbar-btn">
+                <Button
+                    type="submit"
+                    className="searchbar-btn"
+                    data-testid="searchFormButton"
+                >
                     <Search />
                 </Button>
             </InputGroup>

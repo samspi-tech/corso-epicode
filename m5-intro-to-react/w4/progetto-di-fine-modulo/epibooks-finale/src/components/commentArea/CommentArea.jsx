@@ -9,7 +9,10 @@ const CommentArea = ({ isTitleVisible }) => {
     const { selected } = useContext(SelectedContext);
 
     return (
-        <div className="comment-area-container rounded px-3 py-4">
+        <div
+            data-testid="commentsSection"
+            className="comment-area-container rounded px-3 py-4"
+        >
             {isTitleVisible && (
                 <h5 className="comment-area-info d-flex align-items-center gap-3">
                     <span>
