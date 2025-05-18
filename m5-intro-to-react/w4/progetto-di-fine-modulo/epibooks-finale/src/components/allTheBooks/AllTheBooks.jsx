@@ -18,9 +18,12 @@ const AllTheBooks = () => {
                 <ErrorAlert text="Sorry, books are not available right now. Try again later, please." />
             )}
             {books && books.length === 0 && (
-                <ErrorAlert
-                    text={`Can't find "${searchQuery.toUpperCase()}" book. Try a different title.`}
-                />
+                <>
+                    <ErrorAlert
+                        text={`Can't find "${searchQuery.toUpperCase()}" book. Try a different title.`}
+                    />
+                    <BookLoadingSpinner />
+                </>
             )}
             {!isLoading &&
                 !error &&

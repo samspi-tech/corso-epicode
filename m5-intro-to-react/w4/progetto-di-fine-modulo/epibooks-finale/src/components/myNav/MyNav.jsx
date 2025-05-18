@@ -15,8 +15,7 @@ const MyNav = () => {
     const { isDarkMode } = useContext(ThemeContext);
     const { handleClearInput } = useContext(SearchBookContext);
 
-    const booksFilteredLength = books === [] ? '0' : books && books.length;
-    const isPlural = booksFilteredLength !== 1 ? 'results' : 'result';
+    const isPlural = books && books.length !== 1 ? 'results' : 'result';
 
     return (
         <Navbar
@@ -41,9 +40,9 @@ const MyNav = () => {
                         </Link>
                     </Nav>
                     <div className="d-flex align-items-center gap-2">
-                        {booksFilteredLength < 150 && (
+                        {books && books.length < 150 && (
                             <div className="d-flex align-items-center gap-2">
-                                <small className="result-info mb-0">{`${booksFilteredLength} ${isPlural}`}</small>
+                                <small className="result-info mb-0">{`${books.length} ${isPlural}`}</small>
                                 <Button
                                     variant="link"
                                     onClick={handleClearInput}
